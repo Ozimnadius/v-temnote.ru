@@ -1,0 +1,6 @@
+<?
+$sSectionName = "Меню";
+$arDirProperties = Array(
+
+);
+?>

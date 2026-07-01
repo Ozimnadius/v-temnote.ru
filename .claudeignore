@@ -1,0 +1,13 @@
+# --- Зависимости ---
+/node_modules/
+
+# --- Сборка ---
+/bitrix/
+/upload/
+
+# -- Производные
+package-lock.json
+
+# --- IDE, ОС и инструменты ---
+.osp/
+.idea/

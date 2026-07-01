@@ -1,0 +1,65 @@
+@use "../helpers/index" as *;
+
+.header {
+  display: grid;
+  gap: 18px;
+
+  &__top {
+    display: flex;
+    padding: 4px 0;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    align-self: stretch;
+    background: var(--bg-surface);
+
+    a {
+      @include tr;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    padding: 18px 40px;
+    align-items: center;
+    border-radius: 14px;
+    background: var(--bg-surface);
+    backdrop-filter: blur(10px);
+  }
+
+  &__logo {
+    display: block;
+    width: 262px;
+    height: 68px;
+    flex-shrink: 0;
+    color: var(--text);
+    background-color: currentColor;
+    mask: url("/upload/images/logo.svg") center / contain no-repeat;
+    margin-right: auto;
+    @include hover {
+      color: currentColor;
+    }
+  ;
+  }
+
+  &__cart {
+    display: flex;
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    margin-left: 30px;
+    @include tr;
+
+    @include hover {
+      opacity: 0.75;
+    }
+  }
+
+  &__cart-icon {
+    display: block;
+    width: 42px;
+    height: 42px;
+  }
+}

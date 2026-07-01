@@ -1,0 +1,68 @@
+@use "../helpers" as *;
+
+:root {
+  // ============================================================
+  // RAW TOKENS — имена 1:1 с переменными Figma (v-temnote.ruRef)
+  // ============================================================
+
+  // --- Colors ---
+  --Colors-White: #fff;            // Colors/White
+  --Colors-BG-Black: #101010;      // Colors/BG Black
+  --Colors-BG-Black-2: #1b1b1b;    // Colors/BG Black 2
+  --Colors-Gray-1: #525252;        // Colors/Gray 1
+  --Colors-Gray-2: #424242;        // Colors/Gray 2
+  --Colors-Gray-3: #bfbfbf;        // Colors/Gray 3
+  --Colors-Gray-4: #eeeeee;        // Colors/Gray 4
+  --Colors-Blue-Accident: #5ab9e7; // Colors/Blue Accident
+  --Colors-Blue-Accident-2: #259fda; // Colors/Blue Accident 2
+  --Green-1: #219653;              // Green 1 (акцент светлой темы /catalog/)
+
+  // --- Indents / Radius ---
+  --Indents-S: 20px;       // Indents/S
+  --Radius-Raduis-S: 24px; // Radius/Raduis S
+
+  // --- Семейства шрифтов (наша абстракция, в Figma — текстовые стили) ---
+  --font-poiret: "Poiret One", sans-serif;  // заголовки тёмной темы
+  --font-ubuntu: "Ubuntu", sans-serif;       // текст/кнопки тёмной темы
+  --font-inter: "Inter", sans-serif;         // светлая тема (/catalog/)
+
+  // ============================================================
+  // СЕМАНТИЧЕСКИЙ СЛОЙ — ТЁМНАЯ ТЕМА (по умолчанию)
+  // ============================================================
+  --bg: var(--Colors-BG-Black);
+  --bg-surface: var(--Colors-BG-Black-2);
+  --text: var(--Colors-White);
+  --text-muted: var(--Colors-Gray-3);
+  --border: var(--Colors-Gray-2);
+  --accent: var(--Colors-Blue-Accident);
+  --accent-hover: var(--Colors-Blue-Accident-2);
+  --font-heading: var(--font-poiret);
+  --font-text: var(--font-ubuntu);
+
+  // ============================================================
+  // БАЗА
+  // ============================================================
+  --font-size: 16px;
+  --font-weight: 400;
+  --line-height: 1.42;
+
+  --container-width: 1300px;
+  --container-padding: 20px;
+
+  --transition: 0.4s;
+}
+
+// ============================================================
+// СВЕТЛАЯ ТЕМА — раздел /catalog/ (вешается [data-theme="light"])
+// ============================================================
+[data-theme="light"] {
+  --bg: var(--Colors-White);
+  --bg-surface: var(--Colors-Gray-4);
+  --text: var(--Colors-BG-Black);
+  --text-muted: var(--Colors-Gray-1);
+  --border: var(--Colors-Gray-3);
+  --accent: var(--Colors-Blue-Accident-2);
+  --accent-hover: var(--Colors-Blue-Accident);
+  --font-heading: var(--font-inter);
+  --font-text: var(--font-inter);
+}

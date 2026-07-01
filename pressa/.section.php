@@ -1,0 +1,6 @@
+<?
+$sSectionName = "Пресса";
+$arDirProperties = Array(
+
+);
+?>

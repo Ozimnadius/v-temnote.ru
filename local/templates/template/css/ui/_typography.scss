@@ -1,0 +1,208 @@
+@use "../helpers/index" as *;
+
+// ============================================================
+// Типографика — тёмная тема (Poiret One + Ubuntu)
+// Источник: Figma node 1182-11359 (v-temnote.ruRef)
+// letter-spacing 0.06em = 6% из макета; цвет наследуется от body (--text)
+// ============================================================
+
+// ----------------------------------------------------------------
+// Заголовки — Poiret One (var(--font-heading)), weight 400
+// ----------------------------------------------------------------
+@mixin h1 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 70px;
+  line-height: 1;
+  letter-spacing: 0.06em;
+}
+
+@mixin h1-display {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 54px;
+  line-height: 1;
+  letter-spacing: 0.06em;
+}
+
+@mixin h2 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 1;
+  letter-spacing: 0.07px;
+}
+
+@mixin h2-upper {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 1.52;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+@mixin h3 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 27px;
+  line-height: 1;
+  letter-spacing: normal;
+}
+
+@mixin h4 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: 0.07px;
+}
+
+// Text 24 (Accident) — акцентный текст на Poiret One
+@mixin text-accent {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.32;
+  letter-spacing: 0.06em;
+}
+
+// ----------------------------------------------------------------
+// Текст — Ubuntu (var(--font-text))
+// ----------------------------------------------------------------
+@mixin text-36 {
+  font-family: var(--font-text);
+  font-weight: 300;
+  font-size: 36px;
+  line-height: 1.52;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+@mixin text-24 {
+  font-family: var(--font-text);
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 1.32;
+  letter-spacing: 0.06em;
+}
+
+@mixin text-18 {
+  font-family: var(--font-text);
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 1.62;
+  letter-spacing: 0.06em;
+}
+
+@mixin text-16-medium {
+  font-family: var(--font-text);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.06em;
+}
+
+@mixin text-16-regular {
+  font-family: var(--font-text);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.06em;
+}
+
+@mixin text-16 {
+  font-family: var(--font-text);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.42;
+  letter-spacing: 0.06em;
+}
+
+@mixin text-15 {
+  font-family: var(--font-text);
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: 0.06em;
+}
+
+@mixin text-14 {
+  font-family: var(--font-text);
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.06em;
+}
+
+// ----------------------------------------------------------------
+// Кнопки / меню / ссылки — Ubuntu (var(--font-text))
+// ----------------------------------------------------------------
+@mixin menu-18 {
+  font-family: var(--font-text);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0.06em;
+}
+
+@mixin btn-16 {
+  font-family: var(--font-text);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.06em;
+}
+
+@mixin menu-15 {
+  font-family: var(--font-text);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: 0.06em;
+}
+
+@mixin link-15 {
+  font-family: var(--font-text);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: 0.06em;
+  text-decoration: underline;
+}
+
+@mixin link-14 {
+  font-family: var(--font-text);
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.06em;
+  text-decoration: underline;
+}
+
+// ============================================================
+// Применение к тегам и утилитарные классы
+// ============================================================
+h1, .h1 { @include h1; }
+h2, .h2 { @include h2; }
+h3, .h3 { @include h3; }
+h4, .h4 { @include h4; }
+
+.h1-display { @include h1-display; }
+.h2-upper   { @include h2-upper; }
+.text-accent { @include text-accent; }
+
+.text-36 { @include text-36; }
+.text-24 { @include text-24; }
+.text-18 { @include text-18; }
+.text-16-medium  { @include text-16-medium; }
+.text-16-regular { @include text-16-regular; }
+.text-16 { @include text-16; }
+.text-15 { @include text-15; }
+.text-14 { @include text-14; }
+
+.menu-18 { @include menu-18; }
+.btn-16  { @include btn-16; }
+.menu-15 { @include menu-15; }
+.link-15 { @include link-15; }
+.link-14 { @include link-14; }

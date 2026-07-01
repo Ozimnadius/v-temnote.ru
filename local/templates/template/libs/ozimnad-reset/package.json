@@ -1,0 +1,24 @@
+{
+  "name": "ozimnad-reset",
+  "version": "0.1.0",
+  "description": "Simple css reset",
+  "main": "src/ozimnad-reset.css",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ozimnadius/ozimnad-reset"
+  },
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack --mode development"
+  },
+  "keywords": [
+    "ozimnad",
+    "reset"
+  ],
+  "author": "Ozimnadius",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ozimnadius/ozimnad-reset/issues"
+  },
+  "homepage": "https://github.com/Ozimnadius/ozimnad-reset#readme"
+}

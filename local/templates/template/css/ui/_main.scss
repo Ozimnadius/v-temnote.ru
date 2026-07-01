@@ -1,0 +1,14 @@
+@use "../helpers/index" as *;
+
+.container{
+  width: 100%;
+  max-width: calc(0px + var(--container-width) + var(--container-padding)*2);
+  padding-inline: var(--container-padding);
+  margin-inline: auto;
+}
+
+a{
+  @include hover{
+    color: var(--accent);
+  };
+}

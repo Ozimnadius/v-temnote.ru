@@ -1,0 +1,1 @@
+<a href="mailto:v-temnote2007@yandex.ru">v-temnote2007@yandex.ru</a>

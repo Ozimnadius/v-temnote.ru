@@ -1,0 +1,66 @@
+// ============================================================
+// Шрифты дизайн-системы.
+// @font-face — ленивый: файл качается только когда тема реально
+// использует семейство (тёмная → Poiret One + Ubuntu, /catalog/ → Inter).
+// Поэтому объявляем все начертания здесь, не добавляя preload на шрифты.
+// Пути — относительно собранного styles.css (корень шаблона).
+// ============================================================
+
+// --- Poiret One — заголовки тёмной темы ---
+@font-face {
+  font-family: 'Poiret One';
+  src: url('fonts/PoiretOne-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+// --- Ubuntu — текст/кнопки тёмной темы ---
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('fonts/Ubuntu-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('fonts/Ubuntu-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('fonts/Ubuntu-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+// --- Inter — светлая тема (/catalog/) ---
+@font-face {
+  font-family: 'Inter';
+  src: url('fonts/Inter18pt-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('fonts/Inter18pt-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('fonts/Inter18pt-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
