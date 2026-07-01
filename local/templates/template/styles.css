@@ -453,7 +453,13 @@ h4, .h4 {
 
 /* home */
 .home {
+  --offset: 80px;
   padding-top: 20px;
+}
+.home__about {
+  margin-top: var(--offset);
+  background: var(--bg-surface);
+  padding-block: 80px;
 }
 .footer {
   padding: 50px 0;

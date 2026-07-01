@@ -26,6 +26,8 @@ This file provides guidance to Codex (Codex.ai/code) when working with code in t
 
 То есть `styles.css`, `styles.min.css` и `scripts.min.js` — **генерируемые артефакты**: редактируй исходники `.scss` / `.js`, а не скомпилированный вывод.
 
+Для шаблонов компонентов Битрикса действует то же правило: `local/templates/template/components/.../style.css` и `style.css.map` генерируются автоматически из `style.scss`. Вручную редактируй `style.scss`; `style.css` / `style.css.map` не создавай и не обновляй руками без отдельной просьбы.
+
 npm-зависимости (`swiper`, `@fancyapps/ui`, `normalize.css`, `ozimnad-reset`) **вендорятся** копированием из `node_modules/` в `local/templates/template/libs/`; шаблон подключает их из `libs/`, а не из `node_modules/`.
 
 ## Архитектура шаблона (`local/templates/template/`)
