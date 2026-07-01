@@ -86,6 +86,30 @@ bitrix/templates/template/css/blocks/_form.scss
 
 Не подключать файлы блоков напрямую в `styles.scss`, если блок относится к общей директории `css/blocks`.
 
+## UI-Примитивы И Семантические Переменные
+
+При написании стилей сначала использовать существующие UI-примитивы из:
+
+```text
+local/templates/template/css/ui
+```
+
+Не дублировать в блочных SCSS-файлах кнопки, типографику и другие примитивы, если они уже есть в `css/ui`.
+
+При выборе цветов, фонов, текстов и шрифтов учитывать семантический слой переменных из:
+
+```text
+local/templates/template/css/core/_variables.scss
+```
+
+Предпочитать `--bg`, `--bg-surface`, `--text`, `--text-muted`, `--border`, `--accent`, `--accent-hover`, `--font-heading`, `--font-text` вместо размножения raw/Figma-токенов по блокам.
+
+Для UI-кнопок ориентироваться на Figma hover effects:
+
+```text
+https://www.figma.com/design/zQGpjwHb5y81dTZGOCN8b4/v-temnote.ruRef--Copy-?node-id=1186-11108&m=dev
+```
+
 ## Вложенность Селекторов
 
 Элементы BEM-блока пишутся внутри родительского селектора блока через `&__element`.

@@ -26,7 +26,7 @@
   --font-size: 16px;
   --font-weight: 400;
   --line-height: 1.42;
-  --container-width: 1300px;
+  --container-width: 1380px;
   --container-padding: 20px;
   --transition: 0.4s;
 }
@@ -303,10 +303,57 @@ h4, .h4 {
   text-underline-position: from-font;
 }
 
+/* buttons */
+.btn {
+  font-family: var(--font-text);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.06em;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  padding: 12px 20px;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.btn--outline {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+@media (any-hover: hover) {
+  .btn--outline:hover {
+    border-color: var(--accent-hover);
+    color: var(--accent-hover);
+  }
+}
+@media (any-hover: none) {
+  .btn--outline:active {
+    border-color: var(--accent-hover);
+    color: var(--accent-hover);
+  }
+}
+
 .header {
   display: -ms-grid;
   display: grid;
   gap: 18px;
+  position: relative;
+  z-index: 10;
 }
 .header__top {
   display: -webkit-box;
@@ -328,6 +375,13 @@ h4, .h4 {
 .header__top a {
   -webkit-transition: var(--transition);
   transition: var(--transition);
+}
+.header__info {
+  font-family: var(--font-text);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.06em;
 }
 .header__bottom {
   display: -webkit-box;
@@ -398,6 +452,9 @@ h4, .h4 {
 }
 
 /* home */
+.home {
+  padding-top: 20px;
+}
 .footer {
   padding: 50px 0;
   background: var(--bg-surface);
@@ -497,8 +554,6 @@ h4, .h4 {
   letter-spacing: 0.06em;
   text-decoration: underline;
   text-underline-position: from-font;
-  -webkit-transition: var(--transition);
-  transition: var(--transition);
 }
 @media (any-hover: hover) {
   .footer__vendor a:hover {
@@ -509,5 +564,9 @@ h4, .h4 {
   .footer__vendor a:active {
     color: var(--accent-hover);
   }
+}
+.footer__vendor a {
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
 }
 /*# sourceMappingURL=styles.css.map */
