@@ -1,2 +1,25 @@
-
+.footer-socials {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 14px;
+}
+.footer-socials__item {
+  color: var(--accent);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+@media (any-hover: hover) {
+  .footer-socials__item:hover {
+    color: var(--accent-hover);
+  }
+}
+@media (any-hover: none) {
+  .footer-socials__item:active {
+    color: var(--accent-hover);
+  }
+}
 /*# sourceMappingURL=style.css.map */

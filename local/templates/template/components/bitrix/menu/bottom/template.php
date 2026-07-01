@@ -18,13 +18,13 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
       <? if ($arItem["SELECTED"]): ?>
       <li class="footer-menu__item">
         <a href="<?= $arItem["LINK"] ?>"
-           class="footer-menu__link selected"
+           class="footer-menu__link menu-15 selected"
         ><?= $arItem["TEXT"] ?></a>
       </li>
     <? else: ?>
       <li class="footer-menu__item">
         <a href="<?= $arItem["LINK"] ?>"
-           class="footer-menu__link"
+           class="footer-menu__link menu-15"
         ><?= $arItem["TEXT"] ?></a>
       </li>
     <? endif ?>

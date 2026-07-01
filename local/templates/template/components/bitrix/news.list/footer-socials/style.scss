@@ -1,5 +1,16 @@
 @use "../../../../css/helpers" as *;
 
 .footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 14px;
 
+  &__item{
+    color: var(--accent);
+
+    @include hover{
+      color: var(--accent-hover);
+    };
+    @include tr;
+  }
 }

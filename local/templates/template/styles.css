@@ -290,6 +290,7 @@ h4, .h4 {
   line-height: 20px;
   letter-spacing: 0.06em;
   text-decoration: underline;
+  text-underline-position: from-font;
 }
 
 .link-14 {
@@ -299,6 +300,7 @@ h4, .h4 {
   line-height: 20px;
   letter-spacing: 0.06em;
   text-decoration: underline;
+  text-underline-position: from-font;
 }
 
 .header {
@@ -456,5 +458,55 @@ h4, .h4 {
   letter-spacing: 0.06em;
   -webkit-transition: var(--transition);
   transition: var(--transition);
+}
+.footer__info {
+  font-family: var(--font-text);
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: 0.06em;
+}
+.footer__right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: 10px;
+}
+.footer__vendor {
+  font-family: var(--font-text);
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+.footer__vendor a {
+  color: var(--accent);
+  font-family: var(--font-text);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: 0.06em;
+  text-decoration: underline;
+  text-underline-position: from-font;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+@media (any-hover: hover) {
+  .footer__vendor a:hover {
+    color: var(--accent-hover);
+  }
+}
+@media (any-hover: none) {
+  .footer__vendor a:active {
+    color: var(--accent-hover);
+  }
 }
 /*# sourceMappingURL=styles.css.map */
