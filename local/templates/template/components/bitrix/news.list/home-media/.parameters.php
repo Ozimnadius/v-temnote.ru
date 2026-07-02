@@ -22,4 +22,9 @@ $arTemplateParameters = array(
 		"TYPE" => "CHECKBOX",
 		"DEFAULT" => "Y",
 	),
+	"HEADER_TEXT" => Array(
+		"NAME" => GetMessage("HOME_MEDIA_HEADER_TEXT"),
+		"TYPE" => "STRING",
+		"DEFAULT" => "",
+	),
 );

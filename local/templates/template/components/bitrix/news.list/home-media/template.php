@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -12,75 +12,63 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
-<div class="news-list">
-<?if($arParams["DISPLAY_TOP_PAGER"]):?>
-	<?=$arResult["NAV_STRING"]?><br />
-<?endif;?>
-<?foreach($arResult["ITEMS"] as $arItem):?>
-	<?
-	$this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
-	$this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
-	?>
-	<p class="news-item" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
-		<?if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arItem["PREVIEW_PICTURE"])):?>
-			<?if(!$arParams["HIDE_LINK_WHEN_NO_DETAIL"] || ($arItem["DETAIL_TEXT"] && $arResult["USER_HAVE_ACCESS"])):?>
-				<a href="<?=$arItem["DETAIL_PAGE_URL"]?>"><img
-						class="preview_picture"
-						border="0"
-						src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>"
-						width="<?=$arItem["PREVIEW_PICTURE"]["WIDTH"]?>"
-						height="<?=$arItem["PREVIEW_PICTURE"]["HEIGHT"]?>"
-						alt="<?=$arItem["PREVIEW_PICTURE"]["ALT"]?>"
-						title="<?=$arItem["PREVIEW_PICTURE"]["TITLE"]?>"
-						style="float:left"
-						/></a>
-			<?else:?>
-				<img
-					class="preview_picture"
-					border="0"
-					src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>"
-					width="<?=$arItem["PREVIEW_PICTURE"]["WIDTH"]?>"
-					height="<?=$arItem["PREVIEW_PICTURE"]["HEIGHT"]?>"
-					alt="<?=$arItem["PREVIEW_PICTURE"]["ALT"]?>"
-					title="<?=$arItem["PREVIEW_PICTURE"]["TITLE"]?>"
-					style="float:left"
-					/>
-			<?endif;?>
-		<?endif?>
-		<?if($arParams["DISPLAY_DATE"]!="N" && $arItem["DISPLAY_ACTIVE_FROM"]):?>
-			<span class="news-date-time"><?echo $arItem["DISPLAY_ACTIVE_FROM"]?></span>
-		<?endif?>
-		<?if($arParams["DISPLAY_NAME"]!="N" && $arItem["NAME"]):?>
-			<?if(!$arParams["HIDE_LINK_WHEN_NO_DETAIL"] || ($arItem["DETAIL_TEXT"] && $arResult["USER_HAVE_ACCESS"])):?>
-				<a href="<?echo $arItem["DETAIL_PAGE_URL"]?>"><b><?echo $arItem["NAME"]?></b></a><br />
-			<?else:?>
-				<b><?echo $arItem["NAME"]?></b><br />
-			<?endif;?>
-		<?endif;?>
-		<?if($arParams["DISPLAY_PREVIEW_TEXT"]!="N" && $arItem["PREVIEW_TEXT"]):?>
-			<?echo $arItem["PREVIEW_TEXT"];?>
-		<?endif;?>
-		<?if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arItem["PREVIEW_PICTURE"])):?>
-			<div style="clear:both"></div>
-		<?endif?>
-		<?foreach($arItem["FIELDS"] as $code=>$value):?>
-			<small>
-			<?=GetMessage("IBLOCK_FIELD_".$code)?>:&nbsp;<?=$value;?>
-			</small><br />
-		<?endforeach;?>
-		<?foreach($arItem["DISPLAY_PROPERTIES"] as $pid=>$arProperty):?>
-			<small>
-			<?=$arProperty["NAME"]?>:&nbsp;
-			<?if(is_array($arProperty["DISPLAY_VALUE"])):?>
-				<?=implode("&nbsp;/&nbsp;", $arProperty["DISPLAY_VALUE"]);?>
-			<?else:?>
-				<?=$arProperty["DISPLAY_VALUE"];?>
-			<?endif?>
-			</small><br />
-		<?endforeach;?>
-	</p>
-<?endforeach;?>
-<?if($arParams["DISPLAY_BOTTOM_PAGER"]):?>
-	<br /><?=$arResult["NAV_STRING"]?>
-<?endif;?>
-</div>
+<? if (!empty($arResult["ITEMS"])): ?>
+  <div class="home-media">
+    <? if (!empty($arParams["HEADER_TEXT"])): ?>
+      <h2 class="home-media__title"><?= $arParams["HEADER_TEXT"] ?></h2>
+    <? endif; ?>
+
+    <div class="home-media__list">
+      <? foreach ($arResult["ITEMS"] as $arItem): ?>
+        <?
+        $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
+        $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), ["CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')]);
+
+        $iconValue = !empty($arItem["PROPERTIES"]["ICON"]["VALUE"]) ? $arItem["PROPERTIES"]["ICON"]["VALUE"] : "";
+        if (is_array($iconValue)) {
+          $iconValue = reset($iconValue);
+        }
+
+        $iconFile = $iconValue ? CFile::GetFileArray($iconValue) : false;
+        $iconSrc = is_array($iconFile) && !empty($iconFile["SRC"]) ? $iconFile["SRC"] : "";
+        $iconWidth = is_array($iconFile) && !empty($iconFile["WIDTH"]) ? (int) $iconFile["WIDTH"] : "";
+        $iconHeight = is_array($iconFile) && !empty($iconFile["HEIGHT"]) ? (int) $iconFile["HEIGHT"] : "";
+
+        $linkValue = !empty($arItem["PROPERTIES"]["LINK"]["VALUE"]) ? $arItem["PROPERTIES"]["LINK"]["VALUE"] : "";
+        if (is_array($linkValue)) {
+          $linkValue = reset($linkValue);
+        }
+        $link = trim((string) $linkValue);
+        ?>
+        <article class="home-media__item" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
+          <? if ($iconSrc): ?>
+            <div class="home-media__icon">
+              <img
+                class="home-media__image"
+                src="<?= htmlspecialcharsbx($iconSrc) ?>"
+                <? if ($iconWidth): ?>width="<?= $iconWidth ?>"<? endif; ?>
+                <? if ($iconHeight): ?>height="<?= $iconHeight ?>"<? endif; ?>
+                alt=""
+                loading="lazy"
+              >
+            </div>
+          <? endif; ?>
+
+          <div class="home-media__content">
+            <? if ($arParams["DISPLAY_NAME"] != "N" && $arItem["NAME"]): ?>
+              <h3 class="home-media__name"><?= $arItem["NAME"] ?></h3>
+            <? endif; ?>
+
+            <? if ($arParams["DISPLAY_PREVIEW_TEXT"] != "N" && $arItem["PREVIEW_TEXT"]): ?>
+              <div class="home-media__text"><?= $arItem["PREVIEW_TEXT"] ?></div>
+            <? endif; ?>
+
+            <? if ($link): ?>
+              <a class="home-media__link" href="<?= htmlspecialcharsbx($link) ?>">Перейти</a>
+            <? endif; ?>
+          </div>
+        </article>
+      <? endforeach; ?>
+    </div>
+  </div>
+<? endif; ?>

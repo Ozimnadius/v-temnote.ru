@@ -228,7 +228,7 @@
   </section>
   <section class="home__media">
     <div class="container">
-      <? // Список новостей
+      <? // Список медиа
       $APPLICATION->IncludeComponent(
         "bitrix:news.list",
         "home-media",
@@ -284,7 +284,7 @@
           "PAGER_DESC_NUMBERING" => "N",
           "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
           "PAGER_SHOW_ALL" => "N",
-          "COMPONENT_TEMPLATE" => ".default",
+          "COMPONENT_TEMPLATE" => "home-media",
           "SET_LAST_MODIFIED" => "N",
           "STRICT_SECTION_CHECK" => "N",
           "DISPLAY_DATE" => "Y",
@@ -293,7 +293,8 @@
           "DISPLAY_PREVIEW_TEXT" => "Y",
           "PAGER_BASE_LINK_ENABLE" => "N",
           "SHOW_404" => "N",
-          "MESSAGE_404" => ""
+          "MESSAGE_404" => "",
+          "HEADER_TEXT" => "Медиа"
         ],
         false
       ); ?>

@@ -1,12 +1,72 @@
-div.news-list
-{
-	word-wrap: break-word;
-}
-div.news-list img.preview_picture
-{
-	float:left;
-	margin:0 4px 6px 0;
-}
-.news-date-time {
-	color:#486DAA;
+@use "../../../../css/helpers/index" as *;
+@use "../../../../css/ui/typography" as *;
+
+/* home-media */
+.home-media {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 20px 0;
+
+  &__title {
+
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    min-width: 0;
+    border-radius: 100vmax;
+    padding: 24px;
+    background-color: var(--bg-surface);
+  }
+
+  &__icon {
+    display: flex;
+    flex: 0 0 105px;
+    align-items: center;
+    justify-content: center;
+    width: 105px;
+    height: 105px;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &__content {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+  }
+
+  &__name {
+    @include h3;
+  }
+
+  &__text {
+    @include text-14;
+  }
+
+  &__link {
+    @include link-14;
+    color: var(--accent);
+
+    @include hover {
+      color: var(--accent-hover);
+    }
+    @include tr;
+  }
 }

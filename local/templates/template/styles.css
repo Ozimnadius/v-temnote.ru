@@ -476,6 +476,12 @@ h4, .h4 {
 .home__news {
   margin-top: var(--offset);
 }
+.home__media {
+  margin-top: var(--offset);
+}
+.home__reasons {
+  margin-top: var(--offset);
+}
 .footer {
   padding: 50px 0;
   background: var(--bg-surface);
