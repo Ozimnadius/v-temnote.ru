@@ -454,6 +454,13 @@ h4, .h4 {
 
 .page {
   padding-top: 40px;
+  padding-bottom: 80px;
+}
+.page__breadcrumbs {
+  margin-bottom: 30px;
+}
+.page__title {
+  margin-bottom: 30px;
 }
 
 /* home */

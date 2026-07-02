@@ -33,7 +33,9 @@ $this->setFrameMode(true);
 );?>
 <br />
 <?endif?>
+
 <?if($arParams["USE_FILTER"]=="Y"):?>
+
 <?$APPLICATION->IncludeComponent(
 	"bitrix:catalog.filter",
 	"",
@@ -49,10 +51,10 @@ $this->setFrameMode(true);
 		"PAGER_PARAMS_NAME" => $arParams["PAGER_PARAMS_NAME"],
 	),
 	$component
-);
-?>
+); ?>
 <br />
 <?endif?>
+
 <?$APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"",

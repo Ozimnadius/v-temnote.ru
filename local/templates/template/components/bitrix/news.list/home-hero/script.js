@@ -19,6 +19,9 @@
         slidesPerView: 1,
         loop: true,
         effect: "fade",
+        autoplay: {
+          delay: 5000,
+        },
         pagination: {
           el: slider.querySelector(".home-hero__pagination"),
           clickable: true,

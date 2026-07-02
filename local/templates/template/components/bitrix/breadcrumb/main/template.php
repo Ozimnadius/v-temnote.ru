@@ -26,13 +26,17 @@ $itemSize = count($arResult);
 for($index = 0; $index < $itemSize; $index++)
 {
 	$title = htmlspecialcharsex($arResult[$index]["TITLE"]);
-	$arrow = ($index > 0? '-' : '');
+	$separator = '
+		<span class="breadcrumb__separator" aria-hidden="true">
+			<svg class="breadcrumb__separator-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" focusable="false">
+				<path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+			</svg>
+		</span>';
 
 	if($arResult[$index]["LINK"] <> "" && $index != $itemSize-1)
 	{
 		$strReturn .= '
 			<span class="breadcrumb__item" id="bx_breadcrumb_'.$index.'" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-				'.$arrow.'
 				<a class="breadcrumb__link" href="'.$arResult[$index]["LINK"].'" title="'.$title.'" itemprop="item">
 					<span class="breadcrumb__name" itemprop="name">'.$title.'</span>
 				</a>
@@ -43,12 +47,16 @@ for($index = 0; $index < $itemSize; $index++)
 	{
 		$strReturn .= '
 			<span class="breadcrumb__item">
-				'.$arrow.'
 				<span class="breadcrumb__link">'.$title.'</span>
 			</span>';
 	}
+
+	if($index < $itemSize - 1)
+	{
+		$strReturn .= $separator;
+	}
 }
 
-$strReturn .= '<div></div></div>';
+$strReturn .= '</div>';
 
 return $strReturn;

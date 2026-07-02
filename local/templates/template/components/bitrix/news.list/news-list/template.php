@@ -81,13 +81,13 @@ $this->setFrameMode(true);
         <? endif; ?>
 
         <? if ($arParams["DISPLAY_NAME"] != "N" && $arItem["NAME"]): ?>
-          <h3 class="news-list__title text-24">
+          <div class="news-list__title text-24">
             <? if ($showDetailLink): ?>
               <a class="news-list__link" href="<?= $arItem["DETAIL_PAGE_URL"] ?>"><?= $arItem["NAME"] ?></a>
             <? else: ?>
               <?= $arItem["NAME"] ?>
             <? endif; ?>
-          </h3>
+          </div>
         <? endif; ?>
 
         <? if ($arParams["DISPLAY_PREVIEW_TEXT"] != "N" && $arItem["PREVIEW_TEXT"]): ?>
