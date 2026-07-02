@@ -1,0 +1,31 @@
+@use "../helpers/index" as *;
+@use "typography" as *;
+
+/* buttons */
+
+.btn {
+  @include btn-16;
+  @include tr;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: fit-content;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  padding: 12px 20px;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+
+  &--outline {
+    border-color: var(--accent);
+    color: var(--accent);
+
+    @include hover {
+      border-color: var(--accent-hover);
+      color: var(--accent-hover);
+    }
+  }
+}

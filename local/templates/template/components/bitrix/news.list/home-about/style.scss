@@ -1,0 +1,78 @@
+@use "../../../../css/helpers/index" as *;
+@use "../../../../css/ui/typography" as *;
+
+/* home-about */
+
+.home-about {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+
+
+  &__intro {
+    @include text-36;
+  }
+
+  &__slider {
+    position: relative;
+  }
+
+  &__swiper {
+    overflow: hidden;
+  }
+
+  &__wrapper {
+    display: flex;
+    gap: 0;
+  }
+
+  &__slide {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 0;
+    height: auto;
+  }
+
+  &__picture {
+    overflow: hidden;
+    width: 100%;
+    aspect-ratio: 440 / 595;
+    background-color: var(--bg-surface);
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__card-text {
+    @include text-16;
+  }
+
+  &__notice {
+    display: grid;
+    grid-template-columns: 64px minmax(0, 1fr) auto;
+    gap: 42px;
+    align-items: center;
+    border: 1px dashed var(--Colors-Gray-1);
+    border-radius: 20px;
+    padding: 50px;
+  }
+
+  &__notice-icon {
+    width: 64px;
+    height: 64px;
+  }
+
+  &__notice-text {
+    @include text-accent;
+  }
+
+  &__button {
+    align-self: center;
+    padding: 9px 18px;
+  }
+}

@@ -76,17 +76,95 @@
   <section class="home__about">
     <div class="container">
       <? $APPLICATION->IncludeComponent(
+        "bitrix:news.list",
+        "home-about",
+        [
+          "IBLOCK_TYPE" => "home",
+          "IBLOCK_ID" => "6",
+          "NEWS_COUNT" => "20",
+          "SORT_BY1" => "SORT",
+          "SORT_ORDER1" => "ASC",
+          "SORT_BY2" => "ID",
+          "SORT_ORDER2" => "ASC",
+          "FILTER_NAME" => "",
+          "FIELD_CODE" => [
+            0 => "NAME",
+            1 => "PREVIEW_TEXT",
+            2 => "PREVIEW_PICTURE",
+            3 => "",
+          ],
+          "PROPERTY_CODE" => [
+            0 => "",
+            1 => "",
+          ],
+          "CHECK_DATES" => "Y",
+          "DETAIL_URL" => "",
+          "AJAX_MODE" => "N",
+          "AJAX_OPTION_JUMP" => "N",
+          "AJAX_OPTION_STYLE" => "Y",
+          "AJAX_OPTION_HISTORY" => "N",
+          "AJAX_OPTION_ADDITIONAL" => "",
+          "CACHE_TYPE" => "A",
+          "CACHE_TIME" => "3600",
+          "CACHE_NOTES" => "",
+          "CACHE_FILTER" => "N",
+          "CACHE_GROUPS" => "Y",
+          "PREVIEW_TRUNCATE_LEN" => "",
+          "ACTIVE_DATE_FORMAT" => "j M Y",
+          "SET_TITLE" => "N",
+          "SET_BROWSER_TITLE" => "N",
+          "SET_META_KEYWORDS" => "N",
+          "SET_META_DESCRIPTION" => "N",
+          "SET_STATUS_404" => "N",
+          "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+          "ADD_SECTIONS_CHAIN" => "N",
+          "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+          "PARENT_SECTION" => "",
+          "PARENT_SECTION_CODE" => "",
+          "INCLUDE_SUBSECTIONS" => "Y",
+          "PAGER_TEMPLATE" => ".default",
+          "DISPLAY_TOP_PAGER" => "N",
+          "DISPLAY_BOTTOM_PAGER" => "N",
+          "PAGER_TITLE" => "Новости",
+          "PAGER_SHOW_ALWAYS" => "N",
+          "PAGER_DESC_NUMBERING" => "N",
+          "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+          "PAGER_SHOW_ALL" => "N",
+          "COMPONENT_TEMPLATE" => "home-about",
+          "SET_LAST_MODIFIED" => "N",
+          "STRICT_SECTION_CHECK" => "N",
+          "DISPLAY_DATE" => "Y",
+          "DISPLAY_NAME" => "Y",
+          "DISPLAY_PICTURE" => "Y",
+          "DISPLAY_PREVIEW_TEXT" => "Y",
+          "PAGER_BASE_LINK_ENABLE" => "N",
+          "SHOW_404" => "N",
+          "MESSAGE_404" => "",
+          "INTRO_TEXT" => "<span class=\"h2-upper\">Ресторан \"В темноте?!\"</span> - это гораздо больше, чем рядовое заведение общественного питания, посетители которого ужинают без света. Это уникальная возможность по-новому взглянуть на жизнь.",
+          "NOTICE_TEXT" => "Посещение ресторана \"В Темноте?!\" предлагает каждому гостю взглянуть на мир, полный новых ощущений, роскоши общения и изысканного гастрономического удовольствия.",
+          "BUTTON_TEXT" => "Забронировать столик"
+        ],
+        false
+      ); ?>
+    </div>
+  </section>
+  <section class="home__news">
+    <div class="container">
+      <? // Список новостей: только с галочкой «Отображать на главной»,
+      // 3 плашки обычно, до 6 в праздничные периоды — регулируется контентом (галочка + даты активности)
+      $GLOBALS['arrFilterHomeNews'] = ["!PROPERTY_SHOW_ON_MAIN" => false];
+      $APPLICATION->IncludeComponent(
 	"bitrix:news.list", 
-	"home-about", 
+	"news-list", 
 	[
-		"IBLOCK_TYPE" => "home",
-		"IBLOCK_ID" => "6",
-		"NEWS_COUNT" => "20",
-		"SORT_BY1" => "SORT",
-		"SORT_ORDER1" => "ASC",
-		"SORT_BY2" => "ID",
+		"IBLOCK_TYPE" => "content",
+		"IBLOCK_ID" => "7",
+		"NEWS_COUNT" => "6",
+		"SORT_BY1" => "ACTIVE_FROM",
+		"SORT_ORDER1" => "DESC",
+		"SORT_BY2" => "SORT",
 		"SORT_ORDER2" => "ASC",
-		"FILTER_NAME" => "",
+		"FILTER_NAME" => "arrFilterHomeNews",
 		"FIELD_CODE" => [
 			0 => "NAME",
 			1 => "PREVIEW_TEXT",
@@ -107,10 +185,10 @@
 		"CACHE_TYPE" => "A",
 		"CACHE_TIME" => "3600",
 		"CACHE_NOTES" => "",
-		"CACHE_FILTER" => "N",
+		"CACHE_FILTER" => "Y",
 		"CACHE_GROUPS" => "Y",
-		"PREVIEW_TRUNCATE_LEN" => "",
-		"ACTIVE_DATE_FORMAT" => "j M Y",
+		"PREVIEW_TRUNCATE_LEN" => "100",
+		"ACTIVE_DATE_FORMAT" => "j F Y",
 		"SET_TITLE" => "N",
 		"SET_BROWSER_TITLE" => "N",
 		"SET_META_KEYWORDS" => "N",
@@ -130,7 +208,7 @@
 		"PAGER_DESC_NUMBERING" => "N",
 		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
 		"PAGER_SHOW_ALL" => "N",
-		"COMPONENT_TEMPLATE" => "home-about",
+		"COMPONENT_TEMPLATE" => "news-list",
 		"SET_LAST_MODIFIED" => "N",
 		"STRICT_SECTION_CHECK" => "N",
 		"DISPLAY_DATE" => "Y",
@@ -140,15 +218,14 @@
 		"PAGER_BASE_LINK_ENABLE" => "N",
 		"SHOW_404" => "N",
 		"MESSAGE_404" => "",
-		"INTRO_TEXT" => "<span class=\"h2-upper\">Ресторан \"В темноте?!\"</span> - это гораздо больше, чем рядовое заведение общественного питания, посетители которого ужинают без света. Это уникальная возможность по-новому взглянуть на жизнь.",
-		"NOTICE_TEXT" => "Посещение ресторана \"В Темноте?!\" предлагает каждому гостю взглянуть на мир, полный новых ощущений, роскоши общения и изысканного гастрономического удовольствия.",
-		"BUTTON_TEXT" => "Забронировать столик"
+		"HEADER_TEXT" => "Новости",
+		"BUTTON_TEXT" => "Все новости",
+		"BUTTON_URL" => "/news/"
 	],
 	false
 ); ?>
     </div>
   </section>
-  <section class="home__news"></section>
   <section class="home__media"></section>
   <section class="home__reasons"></section>
   <section class="home__service"></section>

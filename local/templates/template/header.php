@@ -1,11 +1,5 @@
 <? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
-$CurDir = $APPLICATION->GetCurDir();
-$CurUri = $APPLICATION->GetCurUri();
-$isMain = $CurDir === '/';
-$isLightTheme = strpos($CurDir, '/catalog/') === 0 || strpos($CurDir, '/order/') === 0; // светлая тема в каталоге и корзине
-//$showAside = $APPLICATION->GetProperty("show_aside") === 'Y';
-//$showTitle = $APPLICATION->GetProperty("show_title") === 'Y';
-//$isContent = $APPLICATION->GetProperty("content_page") === 'Y';
+include $_SERVER['DOCUMENT_ROOT'].SITE_TEMPLATE_PATH.'/inc/page_vars.php';
 ?>
 <!DOCTYPE html>
 <html xml:lang="<?= LANGUAGE_ID ?>" lang="<?= LANGUAGE_ID ?>">
@@ -58,4 +52,38 @@ $isLightTheme = strpos($CurDir, '/catalog/') === 0 || strpos($CurDir, '/order/')
 
     <!--wrapper__content-->
     <div class="wrapper__content">
+    <? if (!$isMain): ?>
+      <? if (!$widePage): ?>
+        <!--container-->
+        <div class="container">
+      <? endif; ?>
+        <!--page-->
+        <div class="page">
+          <? if ($showBreadcrumbs): ?>
+            <div class="page__breadcrumbs">
+                <? $APPLICATION->IncludeComponent("bitrix:breadcrumb", "main", [
+                    "START_FROM" => "0", // номер пункта, с которого строится цепочка
+                    "PATH" => "",        // путь, для которого строится цепочка (по умолчанию текущий)
+                    "SITE_ID" => SITE_ID,
+                ]); ?>
+            </div>
+          <? endif; ?>
+
+          <? if ($showTitle): ?>
+            <h1 class="page__title"><? $APPLICATION->ShowTitle(false); ?></h1>
+          <? endif; ?>
+
+          <? if ($showAside): ?>
+            <!--page__grid-->
+            <div class="page__grid">
+              <aside class="page__aside">
+                  <? include_once $_SERVER['DOCUMENT_ROOT'].SITE_TEMPLATE_PATH . '/page_blocks/aside.php'; ?>
+              </aside>
+              <!--page__main-->
+              <main class="page__main">
+          <? else: ?>
+              <!--page__main-->
+              <main class="page__main">
+          <? endif; ?>
+    <? endif; ?>
 

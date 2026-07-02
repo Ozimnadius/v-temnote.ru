@@ -1,0 +1,33 @@
+@use "../helpers/index" as *;
+
+/* home */
+
+.home {
+  --offset: 80px;
+  padding-top: 20px;
+
+  &__hero {
+  }
+
+  &__about {
+    margin-top: var(--offset);
+    background: var(--bg-surface);
+    padding-block: 80px;
+  }
+
+  &__news {
+    margin-top: var(--offset);
+  }
+
+  &__media {
+  }
+
+  &__reasons {
+  }
+
+  &__service {
+  }
+
+  &__partners {
+  }
+}
