@@ -22,7 +22,8 @@
           ],
           "PROPERTY_CODE" => [
             0 => "UF_LINK",
-            1 => "",
+            1 => "UF_PHOTO_MOBILE",
+            2 => "",
           ],
           "CHECK_DATES" => "Y",
           "DETAIL_URL" => "",
@@ -57,7 +58,7 @@
           "PAGER_DESC_NUMBERING" => "N",
           "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
           "PAGER_SHOW_ALL" => "N",
-          "COMPONENT_TEMPLATE" => ".default",
+          "COMPONENT_TEMPLATE" => "home-hero",
           "SET_LAST_MODIFIED" => "N",
           "STRICT_SECTION_CHECK" => "N",
           "DISPLAY_DATE" => "Y",

@@ -34,6 +34,7 @@ Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/libs/swiper/swiper-bundle.min
             <?
             $link = $arItem["DISPLAY_PROPERTIES"]["UF_LINK"]["VALUE"] ?? $arItem["PROPERTIES"]["UF_LINK"]["VALUE"] ?? "";
             $image = is_array($arItem["PREVIEW_PICTURE"]) ? $arItem["PREVIEW_PICTURE"] : null;
+            $isFirstSlide = ($index === 0);
             ?>
             <div class="home-hero__slide swiper-slide"
                  id="<?= $this->GetEditAreaId($arItem['ID']); ?>"
@@ -65,16 +66,32 @@ Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/libs/swiper/swiper-bundle.min
               </div>
 
               <? if ($arParams["DISPLAY_PICTURE"] != "N" && $image): ?>
-                <div class="home-hero__picture">
-                  <img
-                    class="home-hero__image"
-                    src="<?= $image["SRC"] ?>"
-                    width="<?= $image["WIDTH"] ?>"
-                    height="<?= $image["HEIGHT"] ?>"
-                    alt="<?= $image["ALT"] ?>"
-                    title="<?= $image["TITLE"] ?>"
-                  >
-                </div>
+                <? if (!empty($arItem["PHOTO_MOBILE"])): ?>
+                  <picture class="home-hero__picture">
+                    <source media="(max-width: 743.98px)" srcset="<?= $arItem["PHOTO_MOBILE"]["SRC"] ?>">
+                    <img
+                      class="home-hero__image"
+                      src="<?= $image["SRC"] ?>"
+                      width="<?= $image["WIDTH"] ?>"
+                      height="<?= $image["HEIGHT"] ?>"
+                      alt="<?= $image["ALT"] ?>"
+                      title="<?= $image["TITLE"] ?>"
+                      <?= $isFirstSlide ? 'fetchpriority="high"' : 'loading="lazy"' ?>
+                    >
+                  </picture>
+                <? else: ?>
+                  <div class="home-hero__picture">
+                    <img
+                      class="home-hero__image"
+                      src="<?= $image["SRC"] ?>"
+                      width="<?= $image["WIDTH"] ?>"
+                      height="<?= $image["HEIGHT"] ?>"
+                      alt="<?= $image["ALT"] ?>"
+                      title="<?= $image["TITLE"] ?>"
+                      <?= $isFirstSlide ? 'fetchpriority="high"' : 'loading="lazy"' ?>
+                    >
+                  </div>
+                <? endif; ?>
               <? endif; ?>
 
             </div>
