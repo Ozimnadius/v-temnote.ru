@@ -1,20 +1,20 @@
 @use "../../../../css/helpers" as *;
 
-.footer-menu{
+.footer-menu {
   display: flex;
   align-items: center;
 
-  &__item{
+  &__item {
     &:not(:last-child) {
       border-right: 1px solid var(--Colors-Gray-2);
     }
   }
 
-  &__link{
+  &__link {
     @include tr;
     padding-inline: 20px;
 
-    &.selected{
+    &.selected {
       color: var(--accent);
     }
   }

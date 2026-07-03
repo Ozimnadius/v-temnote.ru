@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -21,10 +21,24 @@ $this->setFrameMode(true);
       <? endif; ?>
 
       <? if (!empty($arParams["BUTTON_TEXT"])): ?>
-        <a class="news-list__button btn btn--outline" href="<?= !empty($arParams["BUTTON_URL"]) ? $arParams["BUTTON_URL"] : '/news/' ?>">
+        <a class="news-list__button btn btn--outline"
+           href="<?= !empty($arParams["BUTTON_URL"]) ? $arParams["BUTTON_URL"] : '/news/' ?>"
+        >
           <?= $arParams["BUTTON_TEXT"] ?>
-          <svg class="news-list__button-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <svg class="news-list__button-icon"
+               xmlns="http://www.w3.org/2000/svg"
+               width="24"
+               height="24"
+               viewBox="0 0 24 24"
+               fill="none"
+               aria-hidden="true"
+          >
+            <path d="M9 6L15 12L9 18"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+            />
           </svg>
         </a>
       <? endif; ?>
@@ -47,10 +61,13 @@ $this->setFrameMode(true);
       $showDetailLink = !$arParams["HIDE_LINK_WHEN_NO_DETAIL"] || ($arItem["DETAIL_TEXT"] && $arResult["USER_HAVE_ACCESS"]);
       ?>
       <article class="news-list__item"
-               id="<?=$this->GetEditAreaId($arItem['ID']);?>">
+               id="<?= $this->GetEditAreaId($arItem['ID']); ?>"
+      >
         <? if ($arParams["DISPLAY_PICTURE"] != "N" && is_array($arItem["PREVIEW_PICTURE"])): ?>
           <? if ($showDetailLink): ?>
-            <a class="news-list__picture" href="<?= $arItem["DETAIL_PAGE_URL"] ?>">
+            <a class="news-list__picture"
+               href="<?= $arItem["DETAIL_PAGE_URL"] ?>"
+            >
               <img
                 class="news-list__image"
                 src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>"
@@ -83,7 +100,9 @@ $this->setFrameMode(true);
         <? if ($arParams["DISPLAY_NAME"] != "N" && $arItem["NAME"]): ?>
           <div class="news-list__title text-24">
             <? if ($showDetailLink): ?>
-              <a class="news-list__link" href="<?= $arItem["DETAIL_PAGE_URL"] ?>"><?= $arItem["NAME"] ?></a>
+              <a class="news-list__link"
+                 href="<?= $arItem["DETAIL_PAGE_URL"] ?>"
+              ><?= $arItem["NAME"] ?></a>
             <? else: ?>
               <?= $arItem["NAME"] ?>
             <? endif; ?>

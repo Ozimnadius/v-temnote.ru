@@ -27,9 +27,10 @@
 
   &__item:not(:last-of-type) &__link {
     color: var(--accent);
-    @include hover{
+    @include hover {
       color: var(--accent-hover);
-    };
+    }
+  ;
     @include tr;
   }
 

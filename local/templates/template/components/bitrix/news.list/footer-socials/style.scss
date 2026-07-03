@@ -5,12 +5,13 @@
   align-items: center;
   gap: 14px;
 
-  &__item{
+  &__item {
     color: var(--accent);
 
-    @include hover{
+    @include hover {
       color: var(--accent-hover);
-    };
+    }
+  ;
     @include tr;
   }
 }

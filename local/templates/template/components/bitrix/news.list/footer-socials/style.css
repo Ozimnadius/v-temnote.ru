@@ -9,8 +9,6 @@
 }
 .footer-socials__item {
   color: var(--accent);
-  -webkit-transition: var(--transition);
-  transition: var(--transition);
 }
 @media (any-hover: hover) {
   .footer-socials__item:hover {
@@ -21,5 +19,9 @@
   .footer-socials__item:active {
     color: var(--accent-hover);
   }
+}
+.footer-socials__item {
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
 }
 /*# sourceMappingURL=style.css.map */

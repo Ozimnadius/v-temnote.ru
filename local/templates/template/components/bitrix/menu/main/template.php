@@ -19,7 +19,9 @@
   }
   ?>
 
-  <nav class="header-nav" aria-label="Основное меню">
+  <nav class="header-nav"
+       aria-label="Основное меню"
+  >
     <ul class="header-nav__list">
       <? foreach ($menuItems as $arItem): ?>
         <?
@@ -61,8 +63,14 @@
           >
             <span class="header-nav__link-text"><?= htmlspecialcharsbx($arItem["TEXT"]) ?></span>
             <? if ($hasChildren): ?>
-              <span class="header-nav__icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" focusable="false">
+              <span class="header-nav__icon"
+                    aria-hidden="true"
+              >
+                <svg width="24"
+                     height="24"
+                     viewBox="0 0 24 24"
+                     focusable="false"
+                >
                   <path d="M6 9L12 15L18 9" />
                 </svg>
               </span>

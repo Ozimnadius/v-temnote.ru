@@ -50,6 +50,6 @@
   if (document.readyState === "complete") {
     waitForSwiper();
   } else {
-    window.addEventListener("load", () => waitForSwiper(), { once: true });
+    window.addEventListener("load", () => waitForSwiper(), {once: true});
   }
 })();

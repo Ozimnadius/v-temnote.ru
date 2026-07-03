@@ -171,10 +171,11 @@ h4, .h4 {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   gap: 60px;
 }
+
 .home-about__intro {
   font-family: var(--font-text);
   font-weight: 300;
@@ -183,43 +184,50 @@ h4, .h4 {
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
+
 .home-about__slider {
   position: relative;
 }
+
 .home-about__swiper {
   overflow: hidden;
 }
+
 .home-about__wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: 0;
 }
+
 .home-about__slide {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   gap: 20px;
   min-width: 0;
   height: auto;
 }
+
 .home-about__picture {
   overflow: hidden;
   width: 100%;
   aspect-ratio: 440/595;
   background-color: var(--bg-surface);
 }
+
 .home-about__image {
   display: block;
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
+
 .home-about__card-text {
   font-family: var(--font-text);
   font-weight: 300;
@@ -227,6 +235,7 @@ h4, .h4 {
   line-height: 1.42;
   letter-spacing: 0.06em;
 }
+
 .home-about__notice {
   display: -ms-grid;
   display: grid;
@@ -234,16 +243,18 @@ h4, .h4 {
   grid-template-columns: 64px minmax(0, 1fr) auto;
   gap: 42px;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   border: 1px dashed var(--Colors-Gray-1);
   border-radius: 20px;
   padding: 50px;
 }
+
 .home-about__notice-icon {
   width: 64px;
   height: 64px;
 }
+
 .home-about__notice-text {
   font-family: var(--font-heading);
   font-weight: 400;
@@ -251,10 +262,12 @@ h4, .h4 {
   line-height: 1.32;
   letter-spacing: 0.06em;
 }
+
 .home-about__button {
   -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  -ms-grid-row-align: center;
+  align-self: center;
   padding: 9px 18px;
 }
+
 /*# sourceMappingURL=style.css.map */

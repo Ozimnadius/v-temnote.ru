@@ -23,32 +23,19 @@ $this->setFrameMode(true);
         <?
         $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
         $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), ["CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')]);
-
-        $iconValue = !empty($arItem["PROPERTIES"]["ICON"]["VALUE"]) ? $arItem["PROPERTIES"]["ICON"]["VALUE"] : "";
-        if (is_array($iconValue)) {
-          $iconValue = reset($iconValue);
-        }
-
-        $iconFile = $iconValue ? CFile::GetFileArray($iconValue) : false;
-        $iconSrc = is_array($iconFile) && !empty($iconFile["SRC"]) ? $iconFile["SRC"] : "";
-        $iconWidth = is_array($iconFile) && !empty($iconFile["WIDTH"]) ? (int) $iconFile["WIDTH"] : "";
-        $iconHeight = is_array($iconFile) && !empty($iconFile["HEIGHT"]) ? (int) $iconFile["HEIGHT"] : "";
-
-        $linkValue = !empty($arItem["PROPERTIES"]["LINK"]["VALUE"]) ? $arItem["PROPERTIES"]["LINK"]["VALUE"] : "";
-        if (is_array($linkValue)) {
-          $linkValue = reset($linkValue);
-        }
-        $link = trim((string) $linkValue);
         ?>
-        <article class="home-media__item" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
-          <? if ($iconSrc): ?>
+        <article class="home-media__item"
+                 id="<?= $this->GetEditAreaId($arItem['ID']); ?>"
+        >
+          <? if (!empty($arItem["ICON"]["SRC"])): ?>
             <div class="home-media__icon">
               <img
                 class="home-media__image"
-                src="<?= htmlspecialcharsbx($iconSrc) ?>"
-                <? if ($iconWidth): ?>width="<?= $iconWidth ?>"<? endif; ?>
-                <? if ($iconHeight): ?>height="<?= $iconHeight ?>"<? endif; ?>
-                alt=""
+                src="<?= htmlspecialcharsbx($arItem["ICON"]["SRC"]) ?>"
+                <? if ($arItem["ICON"]["WIDTH"]): ?>width="<?= $arItem["ICON"]["WIDTH"] ?>"<? endif; ?>
+                <? if ($arItem["ICON"]["HEIGHT"]): ?>height="<?= $arItem["ICON"]["HEIGHT"] ?>"<? endif; ?>
+                alt="<?= $arItem["NAME"] ?>"
+                title="<?= $arItem["NAME"] ?>"
                 loading="lazy"
               >
             </div>
@@ -63,8 +50,10 @@ $this->setFrameMode(true);
               <div class="home-media__text"><?= $arItem["PREVIEW_TEXT"] ?></div>
             <? endif; ?>
 
-            <? if ($link): ?>
-              <a class="home-media__link" href="<?= htmlspecialcharsbx($link) ?>">Перейти</a>
+            <? if ($arItem["LINK"]): ?>
+              <a class="home-media__link"
+                 href="<?= htmlspecialcharsbx($arItem["LINK"]) ?>"
+              ><?= GetMessage("HOME_MEDIA_LINK_TEXT") ?></a>
             <? endif; ?>
           </div>
         </article>
