@@ -102,65 +102,27 @@
   }
 
   &__arrow {
-    @include tr;
 
-    position: relative;
-    width: 36px;
-    height: 36px;
-    border: 1px solid var(--Colors-Gray-1);
-    border-radius: 50%;
-    padding: 0;
-    background-color: transparent;
-    cursor: pointer;
     flex-shrink: 0;
-
-    &::before {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 8px;
-      height: 8px;
-      border-top: 1px solid var(--Colors-Gray-3);
-      border-left: 1px solid var(--Colors-Gray-3);
-      content: "";
-    }
-
+    cursor: pointer;
+    color: var(--Colors-Gray-1);
+    @include tr;
     @include hover {
-      border-color: var(--accent);
-
-      &::before {
-        border-color: var(--accent);
-      }
+      color: var(--accent-hover);
     }
+  ;
 
-    &--prev::before {
-      transform: translate(-35%, -50%) rotate(-45deg);
-    }
-
-    &--next::before {
-      transform: translate(-65%, -50%) rotate(135deg);
-    }
   }
 
   &__pagination {
     display: flex;
+    gap: 9px;
     align-items: center;
-
-    // Зона клика 14x24 (максимум без перекрытия соседей),
-    // видимая точка 6px с зазором 8px — как в макете
-    .swiper-pagination-bullet {
-      width: 14px;
-      height: 24px;
-      margin: 0;
-      padding: 9px 4px;
-      background-color: var(--Colors-Gray-1);
-      background-clip: content-box;
-      opacity: 1;
-    }
-
-    .swiper-pagination-bullet-active {
-      background-color: var(--text);
-    }
+    --swiper-pagination-bullet-horizontal-gap: 0;
+    --swiper-pagination-bullet-size: 9px;
+    --swiper-pagination-bullet-inactive-color: var(--Colors-Gray-1);
+    --swiper-pagination-color: var(--Colors-White);
+    --swiper-pagination-bullet-inactive-opacity: 1;
   }
 
   &__picture {

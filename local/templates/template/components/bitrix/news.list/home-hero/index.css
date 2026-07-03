@@ -274,72 +274,36 @@ h4, .h4 {
   left: 40px;
 }
 .home-hero__arrow {
-  -webkit-transition: var(--transition);
-  transition: var(--transition);
-  position: relative;
-  width: 36px;
-  height: 36px;
-  border: 1px solid var(--Colors-Gray-1);
-  border-radius: 50%;
-  padding: 0;
-  background-color: transparent;
-  cursor: pointer;
   -ms-flex-negative: 0;
       flex-shrink: 0;
-}
-.home-hero__arrow::before {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 8px;
-  height: 8px;
-  border-top: 1px solid var(--Colors-Gray-3);
-  border-left: 1px solid var(--Colors-Gray-3);
-  content: "";
+  cursor: pointer;
+  color: var(--Colors-Gray-1);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
 }
 @media (any-hover: hover) {
   .home-hero__arrow:hover {
-    border-color: var(--accent);
-  }
-  .home-hero__arrow:hover::before {
-    border-color: var(--accent);
+    color: var(--accent-hover);
   }
 }
 @media (any-hover: none) {
   .home-hero__arrow:active {
-    border-color: var(--accent);
+    color: var(--accent-hover);
   }
-  .home-hero__arrow:active::before {
-    border-color: var(--accent);
-  }
-}
-.home-hero__arrow--prev::before {
-  -webkit-transform: translate(-35%, -50%) rotate(-45deg);
-          transform: translate(-35%, -50%) rotate(-45deg);
-}
-.home-hero__arrow--next::before {
-  -webkit-transform: translate(-65%, -50%) rotate(135deg);
-          transform: translate(-65%, -50%) rotate(135deg);
 }
 .home-hero__pagination {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  gap: 9px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-.home-hero__pagination .swiper-pagination-bullet {
-  width: 14px;
-  height: 24px;
-  margin: 0;
-  padding: 9px 4px;
-  background-color: var(--Colors-Gray-1);
-  background-clip: content-box;
-  opacity: 1;
-}
-.home-hero__pagination .swiper-pagination-bullet-active {
-  background-color: var(--text);
+  --swiper-pagination-bullet-horizontal-gap: 0;
+  --swiper-pagination-bullet-size: 9px;
+  --swiper-pagination-bullet-inactive-color: var(--Colors-Gray-1);
+  --swiper-pagination-color: var(--Colors-White);
+  --swiper-pagination-bullet-inactive-opacity: 1;
 }
 .home-hero__picture {
   display: block;
