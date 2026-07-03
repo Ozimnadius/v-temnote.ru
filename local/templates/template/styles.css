@@ -482,6 +482,13 @@ h4, .h4 {
 .home__reasons {
   margin-top: var(--offset);
 }
+.home__service {
+  margin-top: var(--offset);
+}
+.home__partners {
+  margin-top: var(--offset);
+}
+
 .footer {
   padding: 50px 0;
   background: var(--bg-surface);

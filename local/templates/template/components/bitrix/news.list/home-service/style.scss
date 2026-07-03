@@ -1,0 +1,39 @@
+@use "../../../../css/helpers/index" as *;
+@use "../../../../css/ui/typography" as *;
+
+/* home-service */
+.home-service {
+  display: flex;
+  gap: 30px;
+
+  &__item {
+    display: flex;
+    flex: 1 1 0;
+    flex-direction: column;
+    gap: 40px;
+    min-width: 0;
+    border-radius: 20px;
+    padding: 50px;
+    background-color: var(--bg-surface);
+  }
+
+  &__name {
+    @include h2;
+  }
+
+  &__body {
+    display: flex;
+    gap: 40px;
+  }
+
+  &__icon {
+    flex: 0 0 72px;
+    width: 72px;
+    height: 72px;
+    color: var(--accent);
+  }
+
+  &__text {
+    @include text-18;
+  }
+}
