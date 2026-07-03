@@ -1,0 +1,46 @@
+@use "../../../../css/helpers/index" as *;
+@use "../../../../css/ui/typography" as *;
+
+/* home-reasons */
+.home-reasons {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+
+  &__title {
+
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 0;
+
+    @include hover {
+      .home-reasons__name {
+        color: var(--accent);
+      }
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 350 / 245;
+    object-fit: cover;
+  }
+
+  &__name {
+    @include text-24;
+    text-align: center;
+
+    @include tr;
+  }
+}

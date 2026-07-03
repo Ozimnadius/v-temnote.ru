@@ -64,33 +64,19 @@ $this->setFrameMode(true);
                id="<?= $this->GetEditAreaId($arItem['ID']); ?>"
       >
         <? if ($arParams["DISPLAY_PICTURE"] != "N" && is_array($arItem["PREVIEW_PICTURE"])): ?>
-          <? if ($showDetailLink): ?>
-            <a class="news-list__picture"
-               href="<?= $arItem["DETAIL_PAGE_URL"] ?>"
+          <a class="news-list__picture"
+             href="<?= $arItem["DETAIL_PAGE_URL"] ?>"
+          >
+            <img
+              class="news-list__image"
+              src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>"
+              width="<?= $arItem["PREVIEW_PICTURE"]["WIDTH"] ?>"
+              height="<?= $arItem["PREVIEW_PICTURE"]["HEIGHT"] ?>"
+              alt="<?= $arItem["PREVIEW_PICTURE"]["ALT"] ?>"
+              title="<?= $arItem["PREVIEW_PICTURE"]["TITLE"] ?>"
+              loading="lazy"
             >
-              <img
-                class="news-list__image"
-                src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>"
-                width="<?= $arItem["PREVIEW_PICTURE"]["WIDTH"] ?>"
-                height="<?= $arItem["PREVIEW_PICTURE"]["HEIGHT"] ?>"
-                alt="<?= $arItem["PREVIEW_PICTURE"]["ALT"] ?>"
-                title="<?= $arItem["PREVIEW_PICTURE"]["TITLE"] ?>"
-                loading="lazy"
-              >
-            </a>
-          <? else: ?>
-            <div class="news-list__picture">
-              <img
-                class="news-list__image"
-                src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>"
-                width="<?= $arItem["PREVIEW_PICTURE"]["WIDTH"] ?>"
-                height="<?= $arItem["PREVIEW_PICTURE"]["HEIGHT"] ?>"
-                alt="<?= $arItem["PREVIEW_PICTURE"]["ALT"] ?>"
-                title="<?= $arItem["PREVIEW_PICTURE"]["TITLE"] ?>"
-                loading="lazy"
-              >
-            </div>
-          <? endif; ?>
+          </a>
         <? endif; ?>
 
         <? if ($arParams["DISPLAY_DATE"] != "N" && $arItem["DISPLAY_ACTIVE_FROM"]): ?>
@@ -98,19 +84,15 @@ $this->setFrameMode(true);
         <? endif; ?>
 
         <? if ($arParams["DISPLAY_NAME"] != "N" && $arItem["NAME"]): ?>
-          <div class="news-list__title text-24">
-            <? if ($showDetailLink): ?>
-              <a class="news-list__link"
-                 href="<?= $arItem["DETAIL_PAGE_URL"] ?>"
-              ><?= $arItem["NAME"] ?></a>
-            <? else: ?>
-              <?= $arItem["NAME"] ?>
-            <? endif; ?>
-          </div>
+          <a class="news-list__title text-24"
+             href="<?= $arItem["DETAIL_PAGE_URL"] ?>"
+          >
+            <?= $arItem["NAME"] ?>
+          </a>
         <? endif; ?>
 
         <? if ($arParams["DISPLAY_PREVIEW_TEXT"] != "N" && $arItem["PREVIEW_TEXT"]): ?>
-          <div class="news-list__text text-14"><?= $arItem["PREVIEW_TEXT"] ?></div>
+          <a class="news-list__text text-14" href="<?= $arItem["DETAIL_PAGE_URL"] ?>"><?= $arItem["PREVIEW_TEXT"] ?></a>
         <? endif; ?>
       </article>
     <? endforeach; ?>
