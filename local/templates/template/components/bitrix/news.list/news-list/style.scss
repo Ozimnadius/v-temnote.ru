@@ -11,6 +11,10 @@
     margin-bottom: 40px;
   }
 
+  &__button{
+    --padding: 8px 8px 8px 14px;
+  }
+
   &__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

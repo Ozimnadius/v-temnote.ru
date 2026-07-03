@@ -12,6 +12,11 @@
     justify-content: space-between;
   }
 
+  &__logo{
+    width: 195px;
+    height: 50px;
+  }
+
   &__bottom {
     display: grid;
     grid-template-columns: 321fr 659fr 220fr;
@@ -48,27 +53,28 @@
     }
   }
 
-  &__info{
+  &__info {
     @include text-15;
   }
 
-  &__right{
+  &__right {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
   }
 
-  &__vendor{
+  &__vendor {
     @include text-15;
     white-space: nowrap;
 
-    a{
+    a {
       color: var(--accent);
       @include link-15;
-      @include hover{
+      @include hover {
         color: var(--accent-hover);
-      };
+      }
+    ;
       @include tr;
     }
   }
