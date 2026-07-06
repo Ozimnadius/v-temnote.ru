@@ -1,0 +1,106 @@
+(function () {
+  function waitForYmapsReady() {
+    return new Promise(function (resolve, reject) {
+      var startTime = Date.now();
+
+      function checkReady() {
+        if (window.ymaps3 && window.ymaps3.ready) {
+          resolve(window.ymaps3.ready);
+          return;
+        }
+
+        if (Date.now() - startTime > 10000) {
+          reject();
+          return;
+        }
+
+        window.setTimeout(checkReady, 50);
+      }
+
+      checkReady();
+    });
+  }
+
+  function createPlacemark(label) {
+    var placemark = document.createElement("div");
+    placemark.className = "contacts-map__placemark";
+    placemark.setAttribute("aria-label", label);
+    placemark.innerHTML =
+      '<div class="contacts-map__placemark-icon">' +
+        '<svg class="contacts-map__placemark-pin" width="60" height="68" viewBox="0 0 60 68" aria-hidden="true" focusable="false">' +
+          '<g fill="none" fill-rule="evenodd">' +
+            '<path class="contacts-map__placemark-shape" fill="currentColor" fill-rule="nonzero" d="M30.51 56.523a.5.5 0 0 1-.5.477c-.29 0-.51-.21-.52-.477-.145-3.168-1.756-5.217-4.832-6.147C14.53 47.968 7 38.863 7 28 7 15.297 17.297 5 30 5s23 10.297 23 23c0 10.863-7.53 19.968-17.658 22.376-3.076.93-4.687 2.98-4.83 6.147z"/>' +
+            '<path d="M30 68c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z" fill="#fff" fill-rule="nonzero"/>' +
+            '<path d="M30 66a2 2 0 1 0 .001-3.999A2 2 0 0 0 30 66z" fill="currentColor"/>' +
+          '</g>' +
+        '</svg>' +
+        '<div class="contacts-map__placemark-symbol">' +
+          '<svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
+            '<path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M10 18.2V23h11.4a.6.6 0 0 0 .6-.6V8.6a.6.6 0 0 0-.6-.6h-4.954l-.158 2H20v1h-3.79l-.159 2H20v1h-4.028l-.373 4.715a.303.303 0 0 1-.323.284.306.306 0 0 1-.276-.309V2.4a.4.4 0 0 0-.4-.4H14v-.6a.4.4 0 0 0-.4-.4H3.4a.4.4 0 0 0-.4.4V2h-.6a.4.4 0 0 0-.4.4v20a.6.6 0 0 0 .6.6H7v-4.8c0-.11.09-.2.2-.2h2.6c.11 0 .2.09.2.2zM5.5 15V9h2v6h-2zm4-6v6h2V9h-2zm-4-2V4h2v3h-2zm4-3v3h2V4h-2zM17 17v-1h3v1h-3zM16.526 7l.079-1H19.6c.22 0 .4.18.4.4V7h-3.474z"/>' +
+          '</svg>' +
+        '</div>' +
+      '</div>';
+
+    var labelNode = document.createElement("div");
+    labelNode.className = "contacts-map__placemark-label";
+    labelNode.textContent = label;
+    placemark.appendChild(labelNode);
+
+    return placemark;
+  }
+
+  async function initMap(mapNode) {
+    var center = [
+      Number(mapNode.dataset.centerLng),
+      Number(mapNode.dataset.centerLat)
+    ];
+    var zoom = Number(mapNode.dataset.zoom) || 16;
+    var placemarkLabel = mapNode.dataset.placemarkLabel || "";
+
+    if (center.some(function (value) { return !Number.isFinite(value); })) {
+      mapNode.classList.add("contacts-map__frame--error");
+      return;
+    }
+
+    try {
+      await waitForYmapsReady();
+
+      var ymaps3 = window.ymaps3;
+      var YMap = ymaps3.YMap;
+      var YMapDefaultSchemeLayer = ymaps3.YMapDefaultSchemeLayer;
+      var YMapDefaultFeaturesLayer = ymaps3.YMapDefaultFeaturesLayer;
+      var YMapMarker = ymaps3.YMapMarker;
+
+      mapNode.classList.remove("contacts-map__frame--error");
+
+      var map = new YMap(mapNode, {
+        location: {
+          center: center,
+          zoom: zoom
+        },
+        theme: "dark",
+        behaviors: ["drag", "scrollZoom", "pinchZoom", "dblClick"]
+      });
+
+      map.addChild(new YMapDefaultSchemeLayer());
+      map.addChild(new YMapDefaultFeaturesLayer({}));
+      map.addChild(new YMapMarker({ coordinates: center }, createPlacemark(placemarkLabel)));
+    } catch (error) {
+      mapNode.classList.add("contacts-map__frame--error");
+    }
+  }
+
+  function init() {
+    var mapNodes = document.querySelectorAll("[data-yandex-map]");
+
+    Array.prototype.forEach.call(mapNodes, function (mapNode) {
+      initMap(mapNode);
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init, { once: true });
+  } else {
+    init();
+  }
+})();

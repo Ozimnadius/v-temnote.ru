@@ -1,0 +1,126 @@
+@charset "UTF-8";
+/* contacts-map */
+.contacts-map {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.contacts-map__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+@media screen and (max-width: 1023.98px) {
+  .contacts-map__header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+.contacts-map__title {
+  margin: 0;
+}
+.contacts-map__rating {
+  flex: 0 0 auto;
+  width: 370px;
+  max-width: 100%;
+  height: 123px;
+  overflow: hidden;
+}
+.contacts-map__rating-frame {
+  display: block;
+  width: 150px;
+  height: 50px;
+  border: 0;
+  transform: scale(2.4667);
+  transform-origin: left top;
+}
+.contacts-map__widget {
+  overflow: hidden;
+  background: var(--bg-surface);
+  border-radius: var(--Radius-Raduis-S);
+}
+.contacts-map__widget--dark {
+  background: #101418;
+}
+.contacts-map__frame {
+  display: block;
+  width: 100%;
+  height: 665px;
+  border: 0;
+}
+@media screen and (max-width: 743.98px) {
+  .contacts-map__frame {
+    height: 420px;
+  }
+}
+.contacts-map__frame--dark {
+  position: relative;
+  overflow: hidden;
+}
+.contacts-map__frame ymaps3 svg {
+  max-width: none;
+}
+.contacts-map__frame--error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contacts-map__frame--error::before {
+  content: "Карта временно недоступна";
+  color: var(--text);
+}
+.contacts-map__placemark {
+  display: flex;
+  align-items: flex-start;
+  width: max-content;
+  height: 68px;
+  color: #f43;
+  font-family: Arial, Helvetica, sans-serif;
+  transform: translate(-30px, -68px);
+  pointer-events: none;
+}
+.contacts-map__placemark-icon {
+  position: relative;
+  flex: 0 0 auto;
+  width: 60px;
+  height: 68px;
+}
+.contacts-map__placemark-pin {
+  display: block;
+  width: 60px;
+  height: 68px;
+  overflow: visible;
+}
+.contacts-map__placemark-shape {
+  filter: drop-shadow(0 2px 6px rgba(24, 27, 34, 0.3));
+}
+.contacts-map__placemark-symbol {
+  position: absolute;
+  top: 17px;
+  left: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: #fff;
+}
+.contacts-map__placemark-symbol svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+.contacts-map__placemark-label {
+  margin-top: 17px;
+  margin-left: 0;
+  padding: 3px 8px 4px;
+  color: #333;
+  font-size: 13px;
+  line-height: 16px;
+  white-space: nowrap;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 6px;
+}
+
+/*# sourceMappingURL=style.css.map */
