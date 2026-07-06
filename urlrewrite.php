@@ -32,6 +32,14 @@ $arUrlRewrite=array (
     'PATH' => '/personal/index.php',
     'SORT' => 100,
   ),
+  9 => 
+  array (
+    'CONDITION' => '#^/pressa/#',
+    'RULE' => '',
+    'ID' => 'bitrix:news',
+    'PATH' => '/pressa/index.php',
+    'SORT' => 100,
+  ),
   7 => 
   array (
     'CONDITION' => '#^/store/#',
