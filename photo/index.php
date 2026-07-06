@@ -39,7 +39,7 @@ $APPLICATION->SetTitle("Фотогалерея");
 		"DETAIL_PAGER_TITLE" => "Страница",
 		"DETAIL_PROPERTY_CODE" => [
 			0 => "",
-			1 => "",
+			1 => "PHOTOS",
 		],
 		"DETAIL_SET_CANONICAL_URL" => "Y",
 		"DISPLAY_BOTTOM_PAGER" => "Y",
@@ -63,6 +63,7 @@ $APPLICATION->SetTitle("Фотогалерея");
 		"LIST_PROPERTY_CODE" => [
 			0 => "",
 			1 => "PHOTOS",
+			2 => "",
 		],
 		"MESSAGE_404" => "",
 		"META_DESCRIPTION" => "-",
@@ -95,7 +96,7 @@ $APPLICATION->SetTitle("Фотогалерея");
 		"USE_RSS" => "N",
 		"USE_SEARCH" => "N",
 		"USE_SHARE" => "N",
-		"COMPONENT_TEMPLATE" => "news",
+		"COMPONENT_TEMPLATE" => "gallery",
 		"SEF_URL_TEMPLATES" => [
 			"news" => "/photo/",
 			"section" => "",

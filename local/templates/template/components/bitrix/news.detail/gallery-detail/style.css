@@ -1,0 +1,22 @@
+/* gallery-detail */
+.gallery-detail {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: minmax(0, 1fr) 24px minmax(0, 1fr) 24px minmax(0, 1fr) 24px minmax(0, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+.gallery-detail__item {
+  display: block;
+  aspect-ratio: 350/245;
+  overflow: hidden;
+  background-color: var(--bg-surface);
+}
+.gallery-detail__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+/*# sourceMappingURL=style.css.map */

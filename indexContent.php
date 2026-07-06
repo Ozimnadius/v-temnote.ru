@@ -1,4 +1,8 @@
-<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
+<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+/**
+ * @global CMain $APPLICATION
+ */
+?>
 <main class="home">
   <section class="home__hero">
     <div class="container">
