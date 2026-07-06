@@ -1,0 +1,156 @@
+@use "../../../../css/helpers/index" as *;
+@use "../../../../css/ui/typography" as *;
+
+/* pagination */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    display: flex;
+  }
+
+  &__link,
+  &__ellipsis,
+  &__prev,
+  &__next {
+    @include text-18;
+  }
+
+  &__link {
+    @include tr;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 43px;
+    padding: 7px;
+    border: 2px solid transparent;
+    border-radius: 9px;
+    color: var(--text);
+    text-decoration: none;
+
+    @include hover {
+      color: var(--Colors-Blue-Accident-2);
+    }
+
+    &--current {
+      border-color: var(--Colors-Blue-Accident-2);
+      color: var(--text);
+      pointer-events: none;
+    }
+  }
+
+  &__ellipsis {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 42px;
+    height: 43px;
+    color: var(--text);
+  }
+
+  &__arrow,
+  &__prev,
+  &__next {
+    @include tr;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--Colors-Blue-Accident-2);
+    text-decoration: none;
+  }
+
+  &__arrow {
+    flex: 0 0 24px;
+    width: 24px;
+    height: 24px;
+    color: var(--Colors-Gray-1);
+
+    @include hover {
+      color: var(--Colors-Blue-Accident-2);
+    }
+
+    &--prev {
+      transform: rotate(180deg);
+    }
+
+    &--disabled {
+      pointer-events: none;
+    }
+  }
+
+  &__arrow-icon,
+  &__prev-icon,
+  &__next-icon {
+    display: block;
+    flex: 0 0 24px;
+    width: 24px;
+    height: 24px;
+  }
+
+  &__prev,
+  &__next {
+    gap: 6px;
+    min-height: 43px;
+
+    @include hover {
+      color: var(--Colors-Blue-Accident);
+    }
+
+    &--disabled {
+      color: var(--Colors-Gray-1);
+      pointer-events: none;
+    }
+  }
+
+  &__all {
+    @include text-18;
+    @include tr;
+
+    color: var(--Colors-Blue-Accident-2);
+    text-decoration: none;
+
+    @include hover {
+      color: var(--Colors-Blue-Accident);
+    }
+  }
+
+  @include xs-block {
+    gap: 6px;
+
+    &__list {
+      gap: 4px;
+    }
+
+    &__link {
+      min-width: 32px;
+      height: 38px;
+      padding: 5px;
+    }
+
+    &__ellipsis {
+      min-width: 28px;
+      height: 38px;
+    }
+
+    &__prev-text,
+    &__next-text {
+      display: none;
+    }
+  }
+}
