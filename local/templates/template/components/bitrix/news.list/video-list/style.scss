@@ -1,0 +1,71 @@
+@use "../../../../css/helpers/index" as *;
+@use "../../../../css/ui/typography" as *;
+
+.video-list {
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+
+	&__item {
+		display: flex;
+		flex-direction: column;
+		gap: 30px;
+	}
+
+	&__title {
+		margin: 0;
+	}
+
+	&__row {
+		display: flex;
+		align-items: flex-start;
+		gap: 50px;
+	}
+
+	&__media {
+		position: relative;
+		flex: 0 0 790px;
+		width: 790px;
+		cursor: pointer;
+
+		@include hover {
+			.video-list__play {
+				color: var(--accent-hover);
+			}
+		}
+
+		&--playing {
+			.video-list__play {
+				opacity: 0;
+				visibility: hidden;
+			}
+		}
+	}
+
+	&__video {
+		display: block;
+		width: 100%;
+		aspect-ratio: 790 / 449;
+		height: auto;
+		background-color: var(--bg-surface);
+		object-fit: cover;
+	}
+
+	&__play {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 13.1646%;
+		height: auto;
+		color: var(--accent);
+		pointer-events: none;
+		transform: translate(-50%, -50%);
+
+		@include tr;
+	}
+
+	&__text {
+		flex: 1 1 auto;
+		min-width: 0;
+	}
+}
