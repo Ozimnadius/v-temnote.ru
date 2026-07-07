@@ -12,7 +12,9 @@ $asset->addCss(SITE_DIR . "contacts/style.css");
 ?>
 <div class="contacts">
   <div class="contacts__info">
-    <section class="contacts-info" aria-label="Контактная информация">
+    <section class="contacts-info"
+             aria-label="Контактная информация"
+    >
       <div class="contacts-info__content">
         <dl class="contacts-info__list">
 
@@ -125,7 +127,9 @@ $asset->addCss(SITE_DIR . "contacts/style.css");
           </div>
         </dl>
 
-        <a class="contacts-info__mail btn btn--outline" href="mailto:v-temnote2007@yandex.ru">
+        <a class="contacts-info__mail btn btn--outline"
+           href="mailto:v-temnote2007@yandex.ru"
+        >
           <span class="contacts-info__mail-text">Сообщение на почту</span>
           <svg class="contacts-info__mail-icon"
                width="24"
@@ -134,7 +138,9 @@ $asset->addCss(SITE_DIR . "contacts/style.css");
                aria-hidden="true"
                focusable="false"
           >
-            <path d="M16.668 6.66683L10.0013 10.8335L3.33464 6.66683V5.00016L10.0013 9.16683L16.668 5.00016M16.668 3.3335H3.33464C2.40964 3.3335 1.66797 4.07516 1.66797 5.00016V15.0002C1.66797 15.4422 1.84356 15.8661 2.15612 16.1787C2.46868 16.4912 2.89261 16.6668 3.33464 16.6668H16.668C17.11 16.6668 17.5339 16.4912 17.8465 16.1787C18.159 15.8661 18.3346 15.4422 18.3346 15.0002V5.00016C18.3346 4.07516 17.5846 3.3335 16.668 3.3335Z" fill="currentColor"/>
+            <path d="M16.668 6.66683L10.0013 10.8335L3.33464 6.66683V5.00016L10.0013 9.16683L16.668 5.00016M16.668 3.3335H3.33464C2.40964 3.3335 1.66797 4.07516 1.66797 5.00016V15.0002C1.66797 15.4422 1.84356 15.8661 2.15612 16.1787C2.46868 16.4912 2.89261 16.6668 3.33464 16.6668H16.668C17.11 16.6668 17.5339 16.4912 17.8465 16.1787C18.159 15.8661 18.3346 15.4422 18.3346 15.0002V5.00016C18.3346 4.07516 17.5846 3.3335 16.668 3.3335Z"
+                  fill="currentColor"
+            />
           </svg>
         </a>
 
@@ -161,7 +167,7 @@ $asset->addCss(SITE_DIR . "contacts/style.css");
   <div class="contacts__map">
     <? $APPLICATION->IncludeComponent(
       "web-comp:yandex.map",
-      "",
+      "contacts-map",
       [
         "TITLE" => "Посмотреть на карте",
         "RATING_WIDGET_URL" => "https://yandex.ru/sprav/widget/rating-badge/1325192770?type=award&theme=dark",
@@ -170,7 +176,7 @@ $asset->addCss(SITE_DIR . "contacts/style.css");
         "CENTER_LNG" => "37.614140",
         "ZOOM" => "17",
         "PLACEMARK_LABEL" => "Ресторан В ТЕМНОТЕ?!",
-        "MAP_ARIA_LABEL" => "Темная карта ресторана В темноте?!",
+        "MAP_ARIA_LABEL" => "Темная карта ресторана В темноте?!"
       ],
       false
     ); ?>
