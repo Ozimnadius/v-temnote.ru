@@ -1,0 +1,1 @@
+<img src="/upload/images/menu/menu-ru.jpg" title="Меню светлого зала">

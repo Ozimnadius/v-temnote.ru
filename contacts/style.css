@@ -21,18 +21,6 @@
   background: var(--bg-surface);
   border-radius: var(--Radius-Raduis-S);
 }
-@media screen and (max-width: 1023.98px) {
-  .contacts-info {
-    -ms-grid-columns: 1fr;
-    grid-template-columns: 1fr;
-  }
-}
-@media screen and (max-width: 743.98px) {
-  .contacts-info {
-    gap: 24px;
-    padding: 20px;
-  }
-}
 .contacts-info__content {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -152,11 +140,6 @@
   padding: 60px 20px;
   background: var(--bg-surface);
   border-radius: var(--Radius-Raduis-S);
-}
-@media screen and (max-width: 743.98px) {
-  .contacts-reviews {
-    padding: 40px 12px;
-  }
 }
 .contacts-reviews__title {
   margin: 0;

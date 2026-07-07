@@ -9,18 +9,25 @@ $aMenuLinks = Array(
 	),
 	Array(
 		"Светлый зал", 
-		"/menu/beverages/", 
+		"/menu/menu-ru/",
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Винная карта",
-		"/menu/bar/", 
+		"/menu/beverages/",
 		Array(), 
 		Array(), 
 		"" 
 	),
+    Array(
+        "Меню бара",
+        "/menu/bar/",
+        Array(),
+        Array(),
+        ""
+    ),
     Array(
         "Акции",
         "/actions/",

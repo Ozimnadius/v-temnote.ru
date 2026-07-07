@@ -1,0 +1,56 @@
+@use "../local/templates/template/css/helpers/index" as *;
+
+/* menu */
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  &__banner {
+
+  }
+
+  &__content {
+    padding-top: 45px;
+  }
+
+  &__cta {
+  }
+}
+
+/* menu-banner */
+
+.menu-banner {
+  position: relative;
+  aspect-ratio: 1380 / 490;
+  overflow: hidden;
+  border-radius: 14px;
+  background: var(--bg-surface);
+
+  &__image {
+    position: absolute;
+    inset: 0;
+  }
+
+  &__image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__title {
+    position: absolute;
+    top: 50%;
+    left: 28.26%;
+    z-index: 1;
+    width: max-content;
+    max-width: calc(100% - 40px);
+    margin: 0;
+    color: var(--bg-surface);
+    letter-spacing: 0;
+    white-space: nowrap;
+    transform: translateY(-50%);
+  }
+}
