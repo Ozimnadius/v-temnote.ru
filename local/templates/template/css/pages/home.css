@@ -1,0 +1,27 @@
+/* home */
+.home {
+  --offset: 80px;
+  padding-top: 20px;
+  padding-bottom: 80px;
+}
+.home__about {
+  margin-top: var(--offset);
+  background: var(--bg-surface);
+  padding-block: 80px;
+}
+.home__news {
+  margin-top: var(--offset);
+}
+.home__media {
+  margin-top: var(--offset);
+}
+.home__reasons {
+  margin-top: var(--offset);
+}
+.home__service {
+  margin-top: var(--offset);
+}
+.home__partners {
+  margin-top: var(--offset);
+}
+/*# sourceMappingURL=home.css.map */

@@ -9,7 +9,7 @@ $APPLICATION->SetPageProperty("title", "Меню светлого зала");
 
 $APPLICATION->SetTitle("Меню светлого зала");
 $asset = \Bitrix\Main\Page\Asset::getInstance();
-$asset->addCss(SITE_DIR . "menu/style.css");
+$asset->addCss(SITE_TEMPLATE_PATH . "/css/pages/menu.css");
 ?>
 
 
@@ -103,7 +103,46 @@ $asset->addCss(SITE_DIR . "menu/style.css");
     ); ?>
   </div>
 
-  <div class="menu__cta"></div>
+  <div class="menu__cta">
+    <section class="menu-cta">
+      <div class="menu-cta__image">
+        <? $APPLICATION->IncludeComponent(
+          "bitrix:main.include",
+          "",
+          array(
+            "AREA_FILE_RECURSIVE" => "Y",
+            "AREA_FILE_SHOW" => "sect",
+            "AREA_FILE_SUFFIX" => "cta_image",
+            "EDIT_TEMPLATE" => ""
+          )
+        ); ?>
+      </div>
+      <div class="menu-cta__content">
+        <? $APPLICATION->IncludeComponent(
+          "bitrix:main.include",
+          "",
+          array(
+            "AREA_FILE_RECURSIVE" => "Y",
+            "AREA_FILE_SHOW" => "sect",
+            "AREA_FILE_SUFFIX" => "cta_content",
+            "EDIT_TEMPLATE" => ""
+          )
+        ); ?>
+      </div>
+      <div class="menu-cta__button">
+        <? $APPLICATION->IncludeComponent(
+          "bitrix:main.include",
+          "",
+          array(
+            "AREA_FILE_RECURSIVE" => "Y",
+            "AREA_FILE_SHOW" => "sect",
+            "AREA_FILE_SUFFIX" => "cta_button",
+            "EDIT_TEMPLATE" => ""
+          )
+        ); ?>
+      </div>
+    </section>
+  </div>
 </main>
 
 <? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>

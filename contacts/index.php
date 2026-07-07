@@ -8,7 +8,7 @@ require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 
 $APPLICATION->SetTitle("Контакты");
 $asset = \Bitrix\Main\Page\Asset::getInstance();
-$asset->addCss(SITE_DIR . "contacts/style.css");
+$asset->addCss(SITE_TEMPLATE_PATH . "/css/pages/contacts.css");
 ?>
 <div class="contacts">
   <div class="contacts__info">

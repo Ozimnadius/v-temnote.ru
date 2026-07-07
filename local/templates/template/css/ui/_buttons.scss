@@ -3,7 +3,7 @@
 
 /* buttons */
 
-.btn {
+@mixin btn {
   @include btn-16;
   @include tr;
 
@@ -18,14 +18,49 @@
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
+}
+
+@mixin btn-outline {
+  border-color: var(--accent);
+  color: var(--accent);
+
+  @include hover {
+    border-color: var(--accent-hover);
+    color: var(--accent-hover);
+  }
+}
+
+@mixin btn-inline {
+  min-height: 51px;
+  padding: var(--padding, 14px 24px 14px 28px);
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--Colors-White);
+
+  &::after {
+    content: "";
+    width: 16px;
+    height: 16px;
+    flex: 0 0 16px;
+    background-color: currentColor;
+    mask: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 4L10 8L6 12' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+
+  @include hover {
+    border-color: var(--accent-hover);
+    background: var(--accent-hover);
+    color: var(--Colors-White);
+  }
+}
+
+.btn {
+  @include btn;
 
   &--outline {
-    border-color: var(--accent);
-    color: var(--accent);
+    @include btn-outline;
+  }
 
-    @include hover {
-      border-color: var(--accent-hover);
-      color: var(--accent-hover);
-    }
+  &--inline {
+    @include btn-inline;
   }
 }
