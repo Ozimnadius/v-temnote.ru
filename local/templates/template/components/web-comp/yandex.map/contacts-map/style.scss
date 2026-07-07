@@ -1,4 +1,5 @@
-@use "../../../../../templates/template/css/helpers/index" as *;
+@use "../../../../css/helpers/index" as *;
+@use "../../../../css/ui/typography" as *;
 
 /* contacts-map */
 
@@ -12,15 +13,6 @@
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-
-    @include sm-block {
-      align-items: flex-start;
-      flex-direction: column;
-    }
-  }
-
-  &__title {
-    margin: 0;
   }
 
   &__rating {
@@ -46,7 +38,7 @@
     border-radius: var(--Radius-Raduis-S);
 
     &--dark {
-      background: #101418;
+      background: var(--bg-surface);
     }
   }
 
@@ -56,9 +48,6 @@
     height: 665px;
     border: 0;
 
-    @include xs-block {
-      height: 420px;
-    }
 
     &--dark {
       position: relative;
