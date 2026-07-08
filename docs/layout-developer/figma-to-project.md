@@ -16,9 +16,9 @@
 Перед переносом Figma в проект агент должен прочитать и учитывать:
 
 - `AGENTS.md`;
-- `docs/agents/README.md`;
-- `docs/agents/html-structure.md`;
-- `docs/agents/scss-structure.md`.
+- `docs/layout-developer/README.md`;
+- `docs/layout-developer/html-structure.md`;
+- `docs/layout-developer/scss-structure.md`.
 
 Любые физические изменения файлов выполняются только после согласования по правилам `AGENTS.md`.
 
@@ -67,7 +67,7 @@
    - `main__offers`;
    - и другие крупные зоны.
 5. Создать SCSS-файл страницы, например `_main.scss`, только со скелетом элементов.
-6. Подключить SCSS-файл через `bitrix/templates/template/css/blocks/_index.scss`.
+6. Подключить SCSS-файл через `local/templates/template/css/blocks/_index.scss`.
 
 В этой ветке нельзя:
 
@@ -118,7 +118,7 @@
    - и так далее.
 4. Перенести в HTML реальный контент из Figma.
 5. Для каждого внутреннего BEM-блока создать отдельный SCSS-файл со скелетом.
-6. Подключить новые SCSS-файлы через `bitrix/templates/template/css/blocks/_index.scss`.
+6. Подключить новые SCSS-файлы через `local/templates/template/css/blocks/_index.scss`.
 
 Внутренний блок не должен быть пустой заглушкой. Его HTML должен отражать структуру и контент соответствующего Figma node.
 
@@ -142,7 +142,7 @@
 6. Создать внутри `.container` самостоятельный BEM-блок, например `main-hero`.
 7. Перенести в HTML реальный контент из Figma.
 8. Создать или дополнить SCSS-файл внутреннего блока.
-9. Подключить SCSS-файл через `bitrix/templates/template/css/blocks/_index.scss`, если он еще не подключен.
+9. Подключить SCSS-файл через `local/templates/template/css/blocks/_index.scss`, если он еще не подключен.
 
 В этом сценарии нельзя:
 
@@ -223,7 +223,7 @@
 - не создавать `source` и дополнительные адаптивные варианты;
 - не заменять выбранный `img` на `picture` без отдельного согласования.
 
-Примеры и базовые HTML-правила для изображений описаны в `docs/agents/html-structure.md`.
+Примеры и базовые HTML-правила для изображений описаны в `docs/layout-developer/html-structure.md`.
 
 Если задача только про структуру, не переносить:
 
@@ -237,23 +237,23 @@
 
 Если Figma-блок относится к повторяющемуся типу, агент должен учитывать отдельную спецификацию типа блока.
 
-Доступные типы описаны в `docs/agents/block-types/README.md`.
+Доступные типы описаны в `docs/layout-developer/block-types/README.md`.
 
-Для слайдеров, каруселей, блоков со slides, pagination, точками, стрелками или carousel-поведением использовать `docs/agents/block-types/slider.md`.
+Для слайдеров, каруселей, блоков со slides, pagination, точками, стрелками или carousel-поведением использовать `docs/layout-developer/block-types/slider.md`.
 
 ## Правила SCSS-Скелетов
 
-SCSS создается по правилам `docs/agents/scss-structure.md`.
+SCSS создается по правилам `docs/layout-developer/scss-structure.md`.
 
 Базовые требования:
 
 - один самостоятельный BEM-блок равен одному SCSS-файлу;
-- файлы блоков лежат в `bitrix/templates/template/css/blocks`;
+- файлы блоков лежат в `local/templates/template/css/blocks`;
 - имя файла соответствует BEM-блоку;
 - первая строка файла всегда `@use "../helpers/index" as *;`;
 - после `@use` идет комментарий с названием BEM-блока;
 - элементы пишутся через `&__element` внутри родителя;
-- файл подключается в `bitrix/templates/template/css/blocks/_index.scss` через `@forward`.
+- файл подключается в `local/templates/template/css/blocks/_index.scss` через `@forward`.
 
 Пример:
 
@@ -299,8 +299,8 @@ SCSS создается по правилам `docs/agents/scss-structure.md`.
 Перед завершением работы агент должен проверить:
 
 - выбрана правильная ветка переноса;
-- `docs/agents/html-structure.md` учтен;
-- `docs/agents/scss-structure.md` учтен;
+- `docs/layout-developer/html-structure.md` учтен;
+- `docs/layout-developer/scss-structure.md` учтен;
 - отдельные MD-планы для страниц и внутренних блоков не созданы;
 - HTML-теги выбраны по семантике;
 - верхний BEM-блок страницы создан корректно;

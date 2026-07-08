@@ -13,7 +13,7 @@
 Файлы блоков лежат в директории:
 
 ```text
-bitrix/templates/template/css/blocks
+local/templates/template/css/blocks
 ```
 
 Имя SCSS-файла должно соответствовать имени BEM-блока.
@@ -22,10 +22,10 @@ bitrix/templates/template/css/blocks
 Примеры:
 
 ```text
-.form          -> bitrix/templates/template/css/blocks/_form.scss
-.product-card  -> bitrix/templates/template/css/blocks/_product-card.scss
-.catalog-nav   -> bitrix/templates/template/css/blocks/_catalog-nav.scss
-.main-showcase -> bitrix/templates/template/css/blocks/_main-showcase.scss
+.form          -> local/templates/template/css/blocks/_form.scss
+.product-card  -> local/templates/template/css/blocks/_product-card.scss
+.catalog-nav   -> local/templates/template/css/blocks/_catalog-nav.scss
+.main-showcase -> local/templates/template/css/blocks/_main-showcase.scss
 ```
 
 Не размещать стили новых BEM-блоков в общих файлах, если для этого нет отдельного согласования.
@@ -59,7 +59,7 @@ bitrix/templates/template/css/blocks
 Каждый SCSS-файл блока должен быть подключен в:
 
 ```text
-bitrix/templates/template/css/blocks/_index.scss
+local/templates/template/css/blocks/_index.scss
 ```
 
 Подключение выполняется через `@forward`.
@@ -75,7 +75,7 @@ bitrix/templates/template/css/blocks/_index.scss
 Для файла:
 
 ```text
-bitrix/templates/template/css/blocks/_form.scss
+local/templates/template/css/blocks/_form.scss
 ```
 
 подключение должно быть:
@@ -88,6 +88,13 @@ bitrix/templates/template/css/blocks/_form.scss
 
 ## UI-Примитивы И Семантические Переменные
 
+Перед добавлением или изменением SCSS сначала выполнить UI-preflight:
+
+1. Открыть `local/templates/template/css/ui`.
+2. Открыть `local/templates/template/css/core/_variables.scss`.
+3. Проверить, есть ли готовый UI-класс, mixin или semantic token для типографики, цвета, фона, радиуса, transition, кнопки или ссылки.
+4. Только после этого писать локальные правила блока.
+
 При написании стилей сначала использовать существующие UI-примитивы из:
 
 ```text
@@ -96,6 +103,8 @@ local/templates/template/css/ui
 
 Не дублировать в блочных SCSS-файлах кнопки, типографику и другие примитивы, если они уже есть в `css/ui`.
 
+Типографику не задавать вручную через `font-family`, `font-size`, `font-weight`, `line-height`, `letter-spacing`, если нужный стиль уже есть в `css/ui/_typography.scss`. Использовать UI-классы в HTML (`text-24`, `text-18`, `link-14` и т. п.) или mixins в SCSS (`@include text-24`, `@include text-18`, `@include link-14` и т. п.) по существующему паттерну компонента.
+
 При выборе цветов, фонов, текстов и шрифтов учитывать семантический слой переменных из:
 
 ```text
@@ -103,6 +112,8 @@ local/templates/template/css/core/_variables.scss
 ```
 
 Предпочитать `--bg`, `--bg-surface`, `--text`, `--text-muted`, `--border`, `--accent`, `--accent-hover`, `--font-heading`, `--font-text` вместо размножения raw/Figma-токенов по блокам.
+
+Цвета, фон, радиусы и transition не переносить из Figma raw-значениями, если есть semantic token или helper/mixin проекта. Raw/Figma-значения допустимы только для локальной геометрии конкретного блока (`grid`, `gap`, `padding`, `min-height`, `aspect-ratio`), когда подходящего токена в проекте нет.
 
 Для UI-кнопок ориентироваться на Figma hover effects:
 
@@ -211,7 +222,7 @@ https://www.figma.com/design/zQGpjwHb5y81dTZGOCN8b4/v-temnote.ruRef--Copy-?node-
 Для адаптива использовать только миксины из:
 
 ```text
-bitrix/templates/template/css/helpers/_media.scss
+local/templates/template/css/helpers/_media.scss
 ```
 
 Доступные миксины:
@@ -230,7 +241,7 @@ bitrix/templates/template/css/helpers/_media.scss
 Hover-состояния писать только через миксин `hover()` из:
 
 ```text
-bitrix/templates/template/css/helpers/_mixins.scss
+local/templates/template/css/helpers/_mixins.scss
 ```
 
 Правильно:
@@ -277,11 +288,14 @@ bitrix/templates/template/css/helpers/_mixins.scss
 Перед добавлением нового SCSS-блока агент должен проверить:
 
 - HTML содержит самостоятельный BEM-блок.
-- Для блока создан один файл в `bitrix/templates/template/css/blocks`.
+- Для блока создан один файл в `local/templates/template/css/blocks`.
 - Имя файла соответствует имени блока.
 - Первая строка файла — `@use "../helpers/index" as *;`.
 - После `@use` есть комментарий с названием блока.
+- Перед написанием стилей проверены `css/ui` и `css/core/_variables.scss`.
+- Типографика взята из UI-классов или mixins, а не задана raw CSS-свойствами.
+- Цвета, фон, радиусы и transition взяты из semantic tokens/helpers, если они есть.
 - Элементы и модификаторы написаны внутри родителя.
 - Адаптив написан через миксины `lg-block`, `md-block`, `sm-block`, `xs-block`.
 - Hover-состояния написаны через `@include hover`.
-- Файл подключен в `bitrix/templates/template/css/blocks/_index.scss` через `@forward`.
+- Файл подключен в `local/templates/template/css/blocks/_index.scss` через `@forward`.

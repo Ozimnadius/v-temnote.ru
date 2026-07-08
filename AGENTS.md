@@ -36,6 +36,7 @@ npm-зависимости (`swiper`, `@fancyapps/ui`, `normalize.css`, `ozimnad
 
 - `header.php` / `footer.php` — каркас шаблона Битрикса. Здесь регистрируются ассеты через `Bitrix\Main\Page\Asset` (CSS/JS добавляются тут, например `normalize`, `ozimnad-reset`, `scripts.js`) и задаётся вёрстка `.wrapper`. Сама разметка шапки/подвала вынесена в `page_blocks/header.php` и `page_blocks/footer.php`.
 - **Переключение темы**: `header.php` проставляет `<body data-theme="...">`, анализируя текущий каталог — `light` внутри `/catalog/`, `dark` во всех остальных местах. Учитывай этот контракт `data-theme` при добавлении стилей.
+- **Боковая колонка (aside)**: включается свойством раздела в `.section.php` — `show_aside = Y` (весь раздел) или `show_aside_detail = Y` (только детальные страницы SEF-разделов вроде `news/`). Содержимое — файл `sect_aside.php` в каталоге раздела; повторяющиеся промо-карточки — сниппеты в `include/aside/`. Механика: `inc/page_vars.php` (флаги) + `page_blocks/aside.php` (диспетчер + отложенный слот `ShowViewContent('aside')`). Подробности: `docs/layout-developer/aside.md`; эталон — `restoran/about/`.
 - Весь PHP шаблона начинается со страхового условия Битрикса `if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();` — сохраняй его в новых файлах шаблона/инклудов.
 
 ### Структура SCSS

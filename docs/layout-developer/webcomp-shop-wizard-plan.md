@@ -18,7 +18,7 @@
 - официальные уроки Bitrix по типовым сайтам:
   - [Решения типовых сайтов](https://dev.1c-bitrix.ru/learning/course/?COURSE_ID=101&LESSON_ID=3225&LESSON_PATH=8781.4793.3225)
   - [Частые ошибки](https://dev.1c-bitrix.ru/learning/course/?COURSE_ID=101&LESSON_ID=3224&LESSON_PATH=8781.4793.3224)
-- `docs/agents/bitrix-wizard.md` как локальную базу знаний по системе мастеров Bitrix;
+- `docs/layout-developer/bitrix-wizard.md` как локальную базу знаний по системе мастеров Bitrix;
 - `bitrix/modules/aspro.max` как референс реализации похожего мастера установки.
 
 Код из `aspro.max` не копировать механически. Его можно использовать, чтобы понять структуру шагов,
@@ -1117,7 +1117,7 @@ ID классификатора: 4
 
 ## Правила Реализации
 
-- Перед кодом прочитать `AGENTS.md`, `docs/agents/README.md` и `docs/agents/bitrix-wizard.md`.
+- Перед кодом прочитать `AGENTS.md`, `docs/layout-developer/README.md` и `docs/layout-developer/bitrix-wizard.md`.
 - При неясностях сверяться с официальной документацией Bitrix по визардам и с реализацией в `bitrix/modules/aspro.max`.
 - Не использовать бэкап-namespace `~webcomp`.
 - Не создавать `docs/plans` или `PLANNING.md`.

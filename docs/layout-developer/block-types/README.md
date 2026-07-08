@@ -13,6 +13,6 @@
 ## Правила
 
 - Перед созданием блока по Figma агент должен определить, относится ли блок к одному из известных типов.
-- Если тип найден, нужно учитывать и общие правила `docs/agents/html-structure.md`, `docs/agents/scss-structure.md`, `docs/agents/figma-to-project.md`, и спецификацию типа блока.
+- Если тип найден, нужно учитывать и общие правила `docs/layout-developer/html-structure.md`, `docs/layout-developer/scss-structure.md`, `docs/layout-developer/figma-to-project.md`, и спецификацию типа блока.
 - Спецификации типов не заменяют BEM-правила проекта.
 - Новые типы блоков добавляются отдельными MD-файлами и регистрируются в этом индексе.

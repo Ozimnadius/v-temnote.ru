@@ -11,4 +11,22 @@
   &__title{
     margin-bottom: 30px;
   }
+
+  &__grid{
+    display: grid;
+    grid-template-columns: 1fr 401px; // контент + боковая колонка (по макету 949 + 30 + 401 в контейнере 1380)
+    gap: 30px;
+
+    @include sm-block {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__main{
+    min-width: 0; // грид-ячейка не должна распираться широким контентом (таблицы, картинки)
+  }
+
+  &__aside{
+    order: 1; // в DOM колонка стоит до контента, визуально — справа от него (на мобильном — под ним)
+  }
 }
