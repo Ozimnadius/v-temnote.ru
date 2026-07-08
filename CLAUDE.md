@@ -2,6 +2,8 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+Важно: `AGENTS.md` и `CLAUDE.md` должны оставаться синхронизированными. При изменении одного файла сразу вноси те же правила в другой; отличаться могут только название файла и строка про конкретный инструмент.
+
 ## Что это
 
 Сайт на CMS **1С-Битрикс** (ресторан «В темноте?!»), запускается локально через OSPanel на PHP. Никакого фреймворка поверх Битрикса нет, тестов нет, CLI-сборщика тоже нет — проект редактируется в PhpStorm и работает на локальной установке Битрикса.
@@ -37,6 +39,7 @@ npm-зависимости (`swiper`, `@fancyapps/ui`, `normalize.css`, `ozimnad
 - `header.php` / `footer.php` — каркас шаблона Битрикса. Здесь регистрируются ассеты через `Bitrix\Main\Page\Asset` (CSS/JS добавляются тут, например `normalize`, `ozimnad-reset`, `scripts.js`) и задаётся вёрстка `.wrapper`. Сама разметка шапки/подвала вынесена в `page_blocks/header.php` и `page_blocks/footer.php`.
 - **Переключение темы**: `header.php` проставляет `<body data-theme="...">`, анализируя текущий каталог — `light` внутри `/catalog/`, `dark` во всех остальных местах. Учитывай этот контракт `data-theme` при добавлении стилей.
 - **Боковая колонка (aside)**: включается свойством раздела в `.section.php` — `show_aside = Y` (весь раздел) или `show_aside_detail = Y` (только детальные страницы SEF-разделов вроде `news/`). Содержимое — файл `sect_aside.php` в каталоге раздела; повторяющиеся промо-карточки — сниппеты в `include/aside/`. Механика: `inc/page_vars.php` (флаги) + `page_blocks/aside.php` (диспетчер + отложенный слот `ShowViewContent('aside')`). Подробности: `docs/layout-developer/aside.md`; эталон — `restoran/about/`.
+- В шаблонах списков, где элементы выводятся карточками, на каждой карточке обязательно сохраняй редактируемую область Битрикса: `AddEditAction`, `AddDeleteAction` и `id="<?= $this->GetEditAreaId($arItem["ID"]); ?>"` на корневом элементе карточки.
 - Весь PHP шаблона начинается со страхового условия Битрикса `if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();` — сохраняй его в новых файлах шаблона/инклудов.
 
 ### Структура SCSS
