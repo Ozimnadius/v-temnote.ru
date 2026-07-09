@@ -1,0 +1,67 @@
+/* styleguide */
+.styleguide {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  padding-bottom: 40px;
+}
+.styleguide__block {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.styleguide__title {
+  color: var(--accent);
+}
+.styleguide__swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 16px;
+}
+.styleguide__swatch {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-surface);
+}
+.styleguide__chip {
+  height: 80px;
+}
+.styleguide__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 12px;
+  word-break: break-word;
+}
+.styleguide__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+}
+.styleguide__type {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+.styleguide__label {
+  font-family: var(--font-text);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+.styleguide__theme {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/*# sourceMappingURL=styleguide.css.map */

@@ -1,0 +1,74 @@
+@use "../../../../css/helpers/index" as *;
+@use "../../../../css/ui/typography" as *;
+
+/* offers-list */
+
+.offers-list {
+  &__items {
+    display: grid;
+    gap: var(--Indents-S);
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: minmax(250px, 395px) minmax(0, 1fr);
+    align-items: center;
+    gap: 30px;
+    min-height: 440px;
+    padding: 30px;
+    overflow: hidden;
+    border-radius: var(--Radius-Raduis-S);
+    background: var(--bg-surface);
+    color: var(--text);
+
+    &--accent {
+      background: var(--bg);
+      box-shadow: inset 0 0 0 1px var(--border);
+
+      .offers-list__link {
+        border-color: var(--text);
+        background: var(--text);
+        color: var(--bg);
+
+        @include hover {
+          border-color: var(--accent);
+          background: var(--accent);
+          color: var(--text);
+        }
+      }
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 395 / 380;
+    object-fit: cover;
+    border-radius: calc(var(--Radius-Raduis-S) - 6px);
+  }
+
+  &__body {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  &__title {
+    @include h3;
+  }
+
+  &__text {
+    @include text-16;
+  }
+
+  &__link {
+    --padding: 15px 26px;
+
+    max-width: 100%;
+    text-align: center;
+    white-space: normal;
+  }
+}

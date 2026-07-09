@@ -164,111 +164,93 @@ h4, .h4 {
   text-underline-position: from-font;
 }
 
-/* home-media */
-.home-media {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  gap: 40px;
-  padding: 20px 0;
-}
-.home-media__list {
+/* offers-list */
+.offers-list__items {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: minmax(0, 1fr) 30px minmax(0, 1fr) 30px minmax(0, 1fr);
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 30px;
+  gap: var(--Indents-S);
 }
-.home-media__item {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+.offers-list__item {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: minmax(250px, 395px) 30px minmax(0, 1fr);
+  grid-template-columns: minmax(250px, 395px) minmax(0, 1fr);
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   gap: 30px;
-  min-width: 0;
-  border-radius: 100vmax;
-  padding: 24px;
-  background-color: var(--bg-surface);
+  min-height: 440px;
+  padding: 30px;
+  overflow: hidden;
+  border-radius: var(--Radius-Raduis-S);
+  background: var(--bg-surface);
+  color: var(--text);
 }
-.home-media__icon {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 105px;
-          flex: 0 0 105px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 105px;
-  height: 105px;
+.offers-list__item--accent {
+  background: var(--bg);
+  -webkit-box-shadow: inset 0 0 0 1px var(--border);
+          box-shadow: inset 0 0 0 1px var(--border);
 }
-.home-media__image {
+.offers-list__item--accent .offers-list__link {
+  border-color: var(--text);
+  background: var(--text);
+  color: var(--bg);
+}
+@media (any-hover: hover) {
+  .offers-list__item--accent .offers-list__link:hover {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--text);
+  }
+}
+@media (any-hover: none) {
+  .offers-list__item--accent .offers-list__link:active {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--text);
+  }
+}
+.offers-list__image {
   display: block;
   width: 100%;
-  height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  height: auto;
+  aspect-ratio: 395/380;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: calc(var(--Radius-Raduis-S) - 6px);
 }
-.home-media__content {
+.offers-list__body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
+  min-width: 0;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 10px;
-  min-width: 0;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: 24px;
 }
-.home-media__name {
+.offers-list__title {
   font-family: var(--font-heading);
   font-weight: 400;
   font-size: 27px;
   line-height: 1;
   letter-spacing: normal;
 }
-.home-media__text {
+.offers-list__text {
   font-family: var(--font-text);
   font-weight: 300;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 16px;
+  line-height: 1.42;
   letter-spacing: 0.06em;
 }
-.home-media__link {
-  font-family: var(--font-text);
-  font-weight: 300;
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: 0.06em;
-  text-decoration: underline;
-  text-underline-position: from-font;
-  color: var(--accent);
-}
-@media (any-hover: hover) {
-  .home-media__link:hover {
-    color: var(--accent-hover);
-  }
-}
-@media (any-hover: none) {
-  .home-media__link:active {
-    color: var(--accent-hover);
-  }
-}
-.home-media__link {
-  -webkit-transition: var(--transition);
-  transition: var(--transition);
+.offers-list__link {
+  --padding: 15px 26px;
+  max-width: 100%;
+  text-align: center;
+  white-space: normal;
 }
 /*# sourceMappingURL=style.css.map */

@@ -185,26 +185,82 @@
 // ============================================================
 // Применение к тегам и утилитарные классы
 // ============================================================
-h1, .h1 { @include h1; }
-h2, .h2 { @include h2; }
-h3, .h3 { @include h3; }
-h4, .h4 { @include h4; }
+h1, .h1 {
+  @include h1;
+}
 
-.h1-display { @include h1-display; }
-.h2-upper   { @include h2-upper; }
-.text-accent { @include text-accent; }
+h2, .h2 {
+  @include h2;
+}
 
-.text-36 { @include text-36; }
-.text-24 { @include text-24; }
-.text-18 { @include text-18; }
-.text-16-medium  { @include text-16-medium; }
-.text-16-regular { @include text-16-regular; }
-.text-16 { @include text-16; }
-.text-15 { @include text-15; }
-.text-14 { @include text-14; }
+h3, .h3 {
+  @include h3;
+}
 
-.menu-18 { @include menu-18; }
-.btn-16  { @include btn-16; }
-.menu-15 { @include menu-15; }
-.link-15 { @include link-15; }
-.link-14 { @include link-14; }
+h4, .h4 {
+  @include h4;
+}
+
+.h1-display {
+  @include h1-display;
+}
+
+.h2-upper {
+  @include h2-upper;
+}
+
+.text-accent {
+  @include text-accent;
+}
+
+.text-36 {
+  @include text-36;
+}
+
+.text-24 {
+  @include text-24;
+}
+
+.text-18 {
+  @include text-18;
+}
+
+.text-16-medium {
+  @include text-16-medium;
+}
+
+.text-16-regular {
+  @include text-16-regular;
+}
+
+.text-16 {
+  @include text-16;
+}
+
+.text-15 {
+  @include text-15;
+}
+
+.text-14 {
+  @include text-14;
+}
+
+.menu-18 {
+  @include menu-18;
+}
+
+.btn-16 {
+  @include btn-16;
+}
+
+.menu-15 {
+  @include menu-15;
+}
+
+.link-15 {
+  @include link-15;
+}
+
+.link-14 {
+  @include link-14;
+}

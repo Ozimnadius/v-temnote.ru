@@ -13,44 +13,83 @@
   gap: 10px;
   width: fit-content;
   border: 1px solid transparent;
-  border-radius: 100px;
+  border-radius: 100vmax;
   padding: var(--padding, 12px 20px);
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
 }
 
+// Конечная стрелка-шеврон (слот). Ставится на любой вариант через .btn--arrow.
+@mixin btn-arrow {
+  &::after {
+    content: "";
+    width: 7px;
+    height: 12px;
+    flex: 0 0 7px;
+    background-color: currentColor;
+    mask: url("data:image/svg+xml,%3Csvg width='7' height='12' viewBox='0 0 7 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.52856 5.43274C6.60465 5.50883 6.6427 5.59633 6.6427 5.69525C6.6427 5.79417 6.60465 5.88167 6.52856 5.95776L1.20984 11.2765C1.13375 11.3526 1.04624 11.3906 0.947327 11.3906C0.848409 11.3906 0.760905 11.3526 0.684814 11.2765L0.114136 10.7058C0.0380452 10.6297 0 10.5422 0 10.4433C0 10.3444 0.0380452 10.2569 0.114136 10.1808L4.59967 5.69525L0.114136 1.20972C0.0380452 1.13363 0 1.04612 0 0.947205C0 0.848287 0.0380452 0.760783 0.114136 0.684692L0.684814 0.114014C0.760905 0.0379229 0.848409 0 0.947327 0C1.04624 0 1.13375 0.0379229 1.20984 0.114014L6.52856 5.43274Z' fill='black'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+}
+
+// Secondary — прозрачный, рамка и текст акцентные (Подробнее, Все новости, Забронировать)
 @mixin btn-outline {
   border-color: var(--accent);
   color: var(--accent);
 
   @include hover {
-    border-color: var(--accent-hover);
-    color: var(--accent-hover);
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--Colors-White);
   }
 }
 
-@mixin btn-inline {
-  min-height: 51px;
-  padding: var(--padding, 14px 24px 14px 28px);
+// Primary — заливка акцентом, белый текст (В корзину, Оформить заказ, Найти сеансы)
+@mixin btn-primary {
   border-color: var(--accent);
   background: var(--accent);
   color: var(--Colors-White);
-
-  &::after {
-    content: "";
-    width: 16px;
-    height: 16px;
-    flex: 0 0 16px;
-    background-color: currentColor;
-    mask: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 4L10 8L6 12' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
-  }
 
   @include hover {
     border-color: var(--accent-hover);
     background: var(--accent-hover);
     color: var(--Colors-White);
   }
+}
+
+// White — белая заливка на тёмных карточках (Заказать); hover заливается акцентом
+@mixin btn-white {
+  border-color: var(--Colors-White);
+  background: var(--Colors-White);
+  color: var(--Colors-BG-Black);
+
+  @include hover {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--Colors-White);
+  }
+}
+
+// Card — outline на тёмных карточках/фото: белый текст, рамка Blue 2; hover заливается Blue 2
+// (CTA семейства B: «Заказать места», «Купить» в карточках сертификатов)
+@mixin btn-card {
+  border-color: var(--Colors-Blue-Accident-2);
+  color: var(--Colors-White);
+
+  @include hover {
+    border-color: var(--Colors-Blue-Accident-2);
+    background: var(--Colors-Blue-Accident-2);
+    color: var(--Colors-White);
+  }
+}
+
+// Inline — Primary + стрелка + увеличенная зона нажатия (крупный CTA «Сделать заказ ›»)
+@mixin btn-inline {
+  @include btn-primary;
+  @include btn-arrow;
+
+  min-height: 51px;
+  padding: var(--padding, 14px 24px 14px 28px);
 }
 
 .btn {
@@ -60,7 +99,27 @@
     @include btn-outline;
   }
 
+  &--primary {
+    @include btn-primary;
+  }
+
+  &--white {
+    @include btn-white;
+  }
+
+  &--card {
+    @include btn-card;
+  }
+
   &--inline {
     @include btn-inline;
+  }
+
+  &--arrow {
+    @include btn-arrow;
+  }
+
+  &--upper {
+    text-transform: uppercase;
   }
 }
