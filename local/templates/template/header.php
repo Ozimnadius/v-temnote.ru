@@ -80,10 +80,9 @@ include $_SERVER['DOCUMENT_ROOT'].SITE_TEMPLATE_PATH.'/inc/page_vars.php';
                   <? include_once $_SERVER['DOCUMENT_ROOT'].SITE_TEMPLATE_PATH . '/page_blocks/aside.php'; ?>
               </aside>
               <!--page__main-->
-              <main class="page__main">
+              <main class="<?= $pageMainClass ?>">
           <? else: ?>
               <!--page__main-->
-              <main class="page__main">
+              <main class="<?= $pageMainClass ?>">
           <? endif; ?>
     <? endif; ?>
-

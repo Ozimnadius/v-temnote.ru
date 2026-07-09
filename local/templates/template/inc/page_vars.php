@@ -14,6 +14,8 @@ $isLightTheme = strpos($CurDir, '/catalog/') === 0 || strpos($CurDir, '/order/')
 $showTitle = $APPLICATION->GetProperty("show_title") !== 'N'; // заголовок страницы; скрыть: 'N'
 $showBreadcrumbs = $APPLICATION->GetProperty("show_breadcrumbs") !== 'N'; // хлебные крошки; скрыть: 'N'
 $widePage = $APPLICATION->GetProperty("wide_page") === 'Y'; // страница без .container; включить: 'Y'
+$contentLayout = $APPLICATION->GetProperty("content_layout") === 'Y'; // семантическая контентная разметка
+$pageMainClass = 'page__main' . ($contentLayout ? ' content' : '');
 
 // Путь запроса глубже каталога страницы = детальная страница SEF-компонента (список: /news/, деталь: /news/kod-novosti/)
 $requestPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
