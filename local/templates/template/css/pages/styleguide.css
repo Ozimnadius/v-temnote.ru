@@ -1,19 +1,30 @@
 /* styleguide */
 .styleguide {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   gap: 60px;
   padding-bottom: 40px;
 }
 .styleguide__block {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   gap: 24px;
 }
 .styleguide__title {
   color: var(--accent);
 }
 .styleguide__swatches {
+  display: -ms-grid;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
   gap: 16px;
@@ -28,21 +39,36 @@
   height: 80px;
 }
 .styleguide__meta {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   gap: 2px;
   padding: 10px 12px;
   word-break: break-word;
 }
 .styleguide__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   gap: 20px;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .styleguide__type {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   gap: 10px;
   padding-bottom: 20px;
   border-bottom: 1px solid var(--border);
@@ -54,8 +80,13 @@
   color: var(--text-muted);
 }
 .styleguide__theme {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   gap: 20px;
   padding: 30px;
   border: 1px solid var(--border);
@@ -63,5 +94,8 @@
   background: var(--bg);
   color: var(--text);
 }
-
+.styleguide__content {
+  width: 100%;
+  max-width: 949px;
+}
 /*# sourceMappingURL=styleguide.css.map */

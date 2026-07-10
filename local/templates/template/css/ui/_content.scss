@@ -61,6 +61,14 @@
     padding-left: calc(var(--content-step) * 3);
   }
 
+  ul {
+    list-style: disc;
+  }
+
+  ol {
+    list-style: decimal;
+  }
+
   li + li {
     margin-top: var(--content-step);
   }

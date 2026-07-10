@@ -520,6 +520,12 @@ h4, .h4 {
 .content ol {
   padding-left: calc(var(--content-step) * 3);
 }
+.content ul {
+  list-style: disc;
+}
+.content ol {
+  list-style: decimal;
+}
 .content li + li {
   margin-top: var(--content-step);
 }

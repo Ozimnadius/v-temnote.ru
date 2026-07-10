@@ -75,4 +75,9 @@
     background: var(--bg);
     color: var(--text);
   }
+
+  &__content {
+    width: 100%;
+    max-width: 949px;
+  }
 }
